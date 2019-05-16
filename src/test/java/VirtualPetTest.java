@@ -66,7 +66,18 @@ public class VirtualPetTest {
 		int hunger = underTest.getHunger();
 		assertEquals(0, hunger);
 	}
-	
-	
+	@Test
+	public void shouldBeAbleToCheckBoredomLevel() {
+		VirtualPet underTest = new VirtualPet("");
+		boolean isBored = underTest.getBoredom(); 
+		assertEquals(true, isBored);
+	}
+	@Test
+	public void shouldBeAbleToPlayToMakeBoredomFalse() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.play();
+		boolean isBored = underTest.getBoredom(); 
+		assertEquals(false, isBored);
+	}
 	
 }
