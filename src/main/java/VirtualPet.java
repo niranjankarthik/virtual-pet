@@ -1,24 +1,36 @@
 
 public class VirtualPet {
 	
-	String name;
-	int hunger = 10;
+	private String name;
+	private int hunger = 10;
 	
 	public VirtualPet() {
 
 	}
 
-	public VirtualPet(String petName) {
-		name = petName;
+	public VirtualPet(String name) {
+		this.name = name;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public int getHunger() {
-		// TODO Auto-generated method stub
-		return hunger;
+		return this.hunger;
+	}
+
+	public void feedMeal() {
+		this.hunger = 0;
+		
+	}
+
+	public void feedSnack() {
+		this.hunger = this.hunger - 2;
+		if (this.hunger < 0) {
+			this.hunger = 0;
+		}
+		
 	}
 
 }
