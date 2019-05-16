@@ -6,27 +6,66 @@ import org.junit.Test;
 
 public class VirtualPetTest {
 
-    @Test
-    public void shouldBeAbleToCreatePet() {
-        VirtualPet pet = new VirtualPet();
-    }
+	@Test
+	public void shouldBeAbleToCreatePet() {
+		VirtualPet pet = new VirtualPet();
+	}
 
-    @Test
-    public void petShouldHaveName() {
-        VirtualPet underTest = new VirtualPet("Jeff");
+	@Test
+	public void petShouldHaveName() {
+		VirtualPet underTest = new VirtualPet("Jeff");
 
-        String expected = underTest.getName();
+		String name = underTest.getName();
 
-        assertEquals(expected, "Jeff");
-    }
+		assertEquals("Jeff", name);
+	}
 
-    @Test
-    public void shouldHaveDefaultHunger() {
-        VirtualPet underTest = new VirtualPet("Steve");
+	@Test
+	public void shouldHaveDefaultHunger() {
+		VirtualPet underTest = new VirtualPet("Steve");
 
-        int expected = underTest.getHunger();
+		int hunger = underTest.getHunger();
 
-        assertEquals(expected, 10);
-    }
+		assertEquals(10, hunger);
+	}
+
+	@Test
+	public void shouldBeAbleToFeedMealWhichMeansHungerDecreasesToZero() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.feedMeal();
+		int hunger = underTest.getHunger();
+		assertEquals(0, hunger);
+	}
+
+	@Test
+	public void shouldBeAbleToFeedSnackAndDecreaseHungerByTwo() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.feedSnack();
+		int hunger = underTest.getHunger();
+		assertEquals(8, hunger);
+	}
+
+	@Test
+	public void shouldBeAbleToFeedSnackTwiceAndDecreaseHungerByFour() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.feedSnack();
+		underTest.feedSnack();
+		int hunger = underTest.getHunger();
+		assertEquals(6, hunger);
+	}
+
+	@Test
+	public void shouldBeAbleToFeedSnack6xAndDecreaseHungerToZero() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.feedSnack();
+		underTest.feedSnack();
+		underTest.feedSnack();
+		underTest.feedSnack();
+		underTest.feedSnack();
+		underTest.feedSnack();
+		int hunger = underTest.getHunger();
+		assertEquals(0, hunger);
+	}
+
 }
 //© We Can Code
