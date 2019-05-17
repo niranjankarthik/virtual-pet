@@ -140,4 +140,55 @@ public class VirtualPetTest {
 		int boredomCounterAfterPlay = underTest.getBoredomCounter();
 		assertEquals(boredomCounterBeforePlay - 3, boredomCounterAfterPlay);
 	}
+	
+	@Test
+	public void boredomCounterShouldBeTenAfterFiveTicks() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		int boredomCounterAfterFiveTicks = underTest.getBoredomCounter();
+		assertEquals(10, boredomCounterAfterFiveTicks);
+	}
+	
+	@Test
+	public void thirstCounterShouldBe100AfterFiveTicks() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		int thirstAfterFiveTicks = underTest.getThirst();
+		assertEquals(100, thirstAfterFiveTicks);
+	}
+	
+	@Test
+	public void hungerShouldBe100AfterTenTicks() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		int hungerAfterTenTicks = underTest.getHunger();
+		assertEquals(100, hungerAfterTenTicks);
+	}
+	
+	@Test
+	public void boredomCounterShouldBeZeroAfterPlaying3x() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.play();
+		underTest.play();
+		underTest.play();
+		int boredomCounterAfterThreePlays = underTest.getBoredomCounter();
+		assertEquals(0, boredomCounterAfterThreePlays);
+	}
 }

@@ -40,14 +40,26 @@ public class VirtualPet {
 	public void play() {
 		this.boredom = false;
 		this.boredomCounter -= 3;
-
+		if(this.boredomCounter < 0) {
+			this.boredomCounter = 0;
+			
+		}
+		
 	}
 
 	public void tick() {	
 		this.hunger += 10;
 		this.thirst += 20;
 		this.boredomCounter += 1;
-
+		if(this.boredomCounter > 10) {
+			this.boredomCounter = 10;
+		}
+		if(this.thirst > 100) {
+			this.thirst = 100;
+		}
+		if(this.hunger > 100) {
+			this.hunger = 100;
+		}
 	}
 
 	public void giveDrink() {
