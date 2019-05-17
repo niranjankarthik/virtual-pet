@@ -8,6 +8,7 @@ public class VirtualPet {
 
 	private int thirst = 10;
 	private int boredomCounter = 6;
+	private boolean ownership = true;
 
 	public VirtualPet(String name) {
 		this.name = name;
@@ -26,6 +27,9 @@ public class VirtualPet {
 	}
 	public int getBoredomCounter() {
 		return boredomCounter;	
+	}
+	public boolean getOwnership() {
+		return ownership;
 	}
 	public void feedMeal() {
 		this.hunger = 0;
@@ -60,4 +64,8 @@ public class VirtualPet {
 	public void giveDrink() {
 		this.thirst = 0;
 	}
+	public void sendPetToShelter() {
+		this.ownership = false;
+	}
+	
 }

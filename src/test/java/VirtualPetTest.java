@@ -193,5 +193,28 @@ public class VirtualPetTest {
 		int boredomCounterAfterThreePlays = underTest.getBoredomCounter();
 		assertEquals(0, boredomCounterAfterThreePlays);
 	}
+	
+	@Test
+	public void checkDefaultPetOwnershipStatusShouldBeOwned() {
+		VirtualPet underTest = new VirtualPet("");
+		boolean owned = underTest.getOwnership();
+		assertEquals(true, owned);	
+	}
+	
+	@Test
+	public void shouldBeAbleToSendPetToShelter() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.sendPetToShelter();	
+	}
+	
+	@Test
+	public void ifPetIsSentToShelterThenOwnershipIsFalse() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.sendPetToShelter();
+		boolean owned = underTest.getOwnership();
+		assertEquals(false, owned);
+	}
+	
+	
 }
 //© We Can Code
