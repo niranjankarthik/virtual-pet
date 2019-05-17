@@ -8,7 +8,7 @@ public class VirtualPetTest {
 
 	@Test
 	public void shouldBeAbleToCreatePet() {
-		VirtualPet pet = new VirtualPet();
+		VirtualPet pet = new VirtualPet("");
 	}
 
 	@Test
@@ -124,6 +124,12 @@ public class VirtualPetTest {
 		int boredomCounterAfterTick = underTest.getBoredomCounter();
 		assertEquals(initialBoredomCounter + 1, boredomCounterAfterTick);
 	}	
-		
 	
-}
+	@Test
+	public void getPetBoredomShouldBeTrueIfBoredomCounterIsGreaterThan5() {
+		VirtualPet underTest = new VirtualPet("");
+		
+	}
+	}
+	
+

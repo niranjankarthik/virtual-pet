@@ -7,9 +7,6 @@ public class VirtualPet {
 	private int thirst = 10;
 	private int boredomCounter = 6;
 
-	public VirtualPet() {
-
-	}
 
 	public VirtualPet(String name) {
 		this.name = name;
@@ -56,6 +53,9 @@ public class VirtualPet {
 	public void giveDrink() {
 		this.thirst = 0;
 	}
+
+
+	
 
 
 
