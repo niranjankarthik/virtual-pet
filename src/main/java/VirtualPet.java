@@ -4,6 +4,8 @@ public class VirtualPet {
 	private String name;
 	private int hunger = 10;
 
+	private boolean boredom = true;
+
 	public VirtualPet() {
 
 	}
@@ -20,9 +22,13 @@ public class VirtualPet {
 		return this.hunger;
 	}
 
+	public boolean getBoredom() {
+		return boredom;
+
+	}
+
 	public void feedMeal() {
 		this.hunger = 0;
-
 	}
 
 	public void feedSnack() {
@@ -30,6 +36,11 @@ public class VirtualPet {
 		if (this.hunger < 0) {
 			this.hunger = 0;
 		}
+
+	}
+
+	public void play() {
+		this.boredom = false;
 
 	}
 
