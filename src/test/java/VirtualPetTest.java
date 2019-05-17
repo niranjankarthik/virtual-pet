@@ -14,21 +14,15 @@ public class VirtualPetTest {
 	@Test
 	public void petShouldHaveName() {
 		VirtualPet underTest = new VirtualPet("Jeff");
-
 		String name = underTest.getName();
-
 		assertEquals("Jeff", name);
 	}
-
 	@Test
 	public void shouldHaveDefaultHunger() {
 		VirtualPet underTest = new VirtualPet("Steve");
-
 		int hunger = underTest.getHunger();
-
 		assertEquals(10, hunger);
 	}
-
 	@Test
 	public void shouldBeAbleToFeedMealWhichMeansHungerDecreasesToZero() {
 		VirtualPet underTest = new VirtualPet("");
@@ -36,7 +30,6 @@ public class VirtualPetTest {
 		int hunger = underTest.getHunger();
 		assertEquals(0, hunger);
 	}
-
 	@Test
 	public void shouldBeAbleToFeedSnackAndDecreaseHungerByTwo() {
 		VirtualPet underTest = new VirtualPet("");
@@ -44,7 +37,6 @@ public class VirtualPetTest {
 		int hunger = underTest.getHunger();
 		assertEquals(8, hunger);
 	}
-
 	@Test
 	public void shouldBeAbleToFeedSnackTwiceAndDecreaseHungerByFour() {
 		VirtualPet underTest = new VirtualPet("");
@@ -53,7 +45,6 @@ public class VirtualPetTest {
 		int hunger = underTest.getHunger();
 		assertEquals(6, hunger);
 	}
-
 	@Test
 	public void shouldBeAbleToFeedSnack6xAndDecreaseHungerToZero() {
 		VirtualPet underTest = new VirtualPet("");
@@ -66,14 +57,12 @@ public class VirtualPetTest {
 		int hunger = underTest.getHunger();
 		assertEquals(0, hunger);
 	}
-
 	@Test
 	public void shouldBeAbleToCheckBoredomLevel() {
 		VirtualPet underTest = new VirtualPet("");
 		boolean isBored = underTest.getBoredom();
 		assertEquals(true, isBored);
 	}
-
 	@Test
 	public void shouldBeAbleToPlayToMakeBoredomFalse() {
 		VirtualPet underTest = new VirtualPet("");
@@ -81,6 +70,48 @@ public class VirtualPetTest {
 		boolean isBored = underTest.getBoredom();
 		assertEquals(false, isBored);
 	}
-
+	@Test
+	public void hungerShouldGoUpBy10WhenTick() {
+		VirtualPet underTest = new VirtualPet("");
+		int initialHunger = underTest.getHunger();
+		underTest.tick();
+		int hungerAfterTick = underTest.getHunger();
+		assertEquals(initialHunger + 10, hungerAfterTick);	
+	}
+	@Test
+	public void shouldHaveDefaultThirst() {
+		VirtualPet underTest = new VirtualPet("");
+		int Thirst = underTest.getThirst();
+		assertEquals(10, Thirst);
+	}
+	@Test
+	public void shouldBeAlbeToGiveDrinkAndDecreaseThirstToZero() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.giveDrink();
+		int Thirst = underTest.getThirst();
+		assertEquals(0, Thirst);
+	}
+	@Test
+	public void thirstShouldGoUpBy20WhenTick() {
+		VirtualPet underTest = new VirtualPet("");
+		int initialThirst = underTest.getThirst();	
+		underTest.tick();
+		int thirstAfterTick = underTest.getThirst();
+		assertEquals(initialThirst + 20, thirstAfterTick);
+	}
+	@Test
+	public void shouldHaveBoredomCounterDefaultValueSix() {
+		VirtualPet underTest = new VirtualPet("");
+		int boredomCounter = underTest.getBoredomCounter();
+		assertEquals(6, boredomCounter);
+	}
+	@Test
+	public void boredomCounterShouldIncreaseByOneWhenTick() {
+		VirtualPet underTest = new VirtualPet("");
+		int initialBoredomCounter = underTest.getBoredomCounter();
+		underTest.tick();
+		int boredomCounterAfterTick = underTest.getBoredomCounter();
+		assertEquals(initialBoredomCounter + 1, boredomCounterAfterTick);
+	}	
 }
 //© We Can Code
