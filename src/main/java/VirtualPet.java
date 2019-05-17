@@ -7,10 +7,6 @@ public class VirtualPet {
 	private int thirst = 10;
 	private int boredomCounter = 6;
 
-	public VirtualPet() {
-
-	}
-
 	public VirtualPet(String name) {
 		this.name = name;
 	}
@@ -30,19 +26,20 @@ public class VirtualPet {
 	public int getBoredomCounter() {
 		return boredomCounter;	
 	}
+	
+	
 	public void feedMeal() {
 		this.hunger = 0;	
 	}
-
 	public void feedSnack() {
 		this.hunger = this.hunger - 2;
 		if (this.hunger < 0) {
 			this.hunger = 0;
 		}
-
 	}
 	public void play() {
 		this.boredom = false;
+		this.boredomCounter -= 3;
 
 	}
 

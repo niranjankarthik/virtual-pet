@@ -8,7 +8,7 @@ public class VirtualPetTest {
 
 	@Test
 	public void shouldBeAbleToCreatePet() {
-		VirtualPet pet = new VirtualPet();
+		VirtualPet pet = new VirtualPet("");
 	}
 
 	@Test
@@ -125,5 +125,19 @@ public class VirtualPetTest {
 		assertEquals(initialBoredomCounter + 1, boredomCounterAfterTick);
 	}	
 		
+	@Test
+	public void getBoredomShouldReturnTrueIfBoredomCounterIsGreaterThanFive() {
+		VirtualPet underTest = new VirtualPet("");
+		boolean boredom = underTest.getBoredom();
+		assertEquals(true, boredom);
+	}
 	
+	@Test
+	public void boredomCounterShouldDecreaseByThreeWhenPlay() {
+		VirtualPet underTest = new VirtualPet("");
+		int boredomCounterBeforePlay = underTest.getBoredomCounter();
+		underTest.play();
+		int boredomCounterAfterPlay = underTest.getBoredomCounter();
+		assertEquals(boredomCounterBeforePlay - 3, boredomCounterAfterPlay);
+	}
 }
