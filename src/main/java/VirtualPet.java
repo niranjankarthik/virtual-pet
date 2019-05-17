@@ -9,10 +9,7 @@ public class VirtualPet {
 	private int thirst = 10;
 	private int boredomCounter = 6;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 	public VirtualPet(String name) {
 		this.name = name;
 	}
@@ -64,13 +61,13 @@ public class VirtualPet {
 	public void giveDrink() {
 		this.thirst = 0;
 	}
-<<<<<<< HEAD
-
+	public boolean getOwnership() {
+		
+		return true;
+	}
+	public void sendPetToShelter() {
+		
+	}
 
 	
-
-
-
-=======
->>>>>>> master
 }

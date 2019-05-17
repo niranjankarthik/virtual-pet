@@ -125,7 +125,7 @@ public class VirtualPetTest {
 		underTest.tick();
 		int boredomCounterAfterTick = underTest.getBoredomCounter();
 		assertEquals(initialBoredomCounter + 1, boredomCounterAfterTick);
-<<<<<<< HEAD
+
 	}	
 	
 	@Test
@@ -133,11 +133,7 @@ public class VirtualPetTest {
 		VirtualPet underTest = new VirtualPet("");
 		
 	}
-	}
 	
-
-=======
-	}
 
 	@Test
 	public void getBoredomShouldReturnTrueIfBoredomCounterIsGreaterThanFive() {
@@ -205,6 +201,23 @@ public class VirtualPetTest {
 		int boredomCounterAfterThreePlays = underTest.getBoredomCounter();
 		assertEquals(0, boredomCounterAfterThreePlays);
 	}
+	@Test
+	public void checkPetOwnershipStatusShouldBeOwned() {
+		VirtualPet underTest = new VirtualPet("");
+		boolean owned = underTest.getOwnership();
+		assertEquals(true, owned);
+		}
+	@Test
+	public void shouldBeAbleToSendPetToShelter() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.sendPetToShelter();
+	}
+	@Test
+	public void ifPetIsSentToShelterThenOwnershipIsFalse() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.sendPetToShelter();
+		boolean owned = underTest.getOwnership();
+		assertEquals(false, owned);
+	}
 }
-//© We Can Code
->>>>>>> master
+
