@@ -214,7 +214,22 @@ public class VirtualPetTest {
 		boolean owned = underTest.getOwnership();
 		assertEquals(false, owned);
 	}
-	
-	
+	@Test
+	public void shouldBeAbleToGetRabies() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.contractRabies();
+	}
+	@Test
+	public void defaultRabiesShouldBeFalse () {
+		VirtualPet underTest = new VirtualPet("");
+		boolean hasRabies = underTest.getRabiesStatus();
+		assertEquals(false, hasRabies);
+	}
+	@Test
+	public void contractRabiesShouldChangeRabiesStatusToTrue() {
+		VirtualPet underTest = new VirtualPet("");
+		underTest.contractRabies();
+		boolean hasRabies = underTest.getRabiesStatus();
+		assertEquals(true, hasRabies);
+	}
 }
-//© We Can Code

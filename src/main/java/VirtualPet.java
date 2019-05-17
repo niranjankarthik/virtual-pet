@@ -9,6 +9,7 @@ public class VirtualPet {
 	private int thirst = 10;
 	private int boredomCounter = 6;
 	private boolean ownership = true;
+	private boolean rabiesStatus;
 
 	public VirtualPet(String name) {
 		this.name = name;
@@ -66,6 +67,12 @@ public class VirtualPet {
 	}
 	public void sendPetToShelter() {
 		this.ownership = false;
+	}
+	public void contractRabies() {
+		this.rabiesStatus = true;
+	}
+	public boolean getRabiesStatus() {
+		return rabiesStatus;
 	}
 	
 }
