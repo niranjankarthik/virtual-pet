@@ -2,16 +2,37 @@
 public class VirtualPet {
 
 	private String name;
-	private int hunger = 10;
+	private int hunger;
 
-	private boolean boredom = true;
+	private boolean boredom;
 
-	private int thirst = 10;
-	private int boredomCounter = 6;
-	private boolean ownership = true;
+	private int thirst;
+	private int boredomCounter;
+	private boolean ownership;
+	private boolean rabiesStatus;
+	private String species;
+	private int age;
+	
 
-	public VirtualPet(String name) {
+	public VirtualPet(String name, String species) {
 		this.name = name;
+		this.species = species;
+		this.hunger = 10;
+		this.boredom = true;
+		this.thirst = 10;
+		this.boredomCounter = 6;
+		this.ownership = true;
+	}
+	public VirtualPet(String name, String species, int age) {
+		this.name = name;
+		this.species = species;
+		this.age = age;
+		this.hunger = 10;
+		this.boredom = true;
+		this.thirst = 10;
+		this.boredomCounter = 6;
+		this.ownership = true;
+		
 	}
 	public String getName() {
 		return this.name;
@@ -30,6 +51,12 @@ public class VirtualPet {
 	}
 	public boolean getOwnership() {
 		return ownership;
+	}
+	public String getSpecies() {
+		return species;
+	}
+	public int getAge() {
+		return age;
 	}
 	public void feedMeal() {
 		this.hunger = 0;
@@ -67,5 +94,16 @@ public class VirtualPet {
 	public void sendPetToShelter() {
 		this.ownership = false;
 	}
+	public void contractRabies() {
+		this.rabiesStatus = true;
+	}
+	public boolean getRabiesStatus() {
+		return rabiesStatus;
+	}
+	public void incrementAge() {
+		age ++;
+		
+	}
+	
 	
 }
