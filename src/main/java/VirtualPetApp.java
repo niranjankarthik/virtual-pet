@@ -18,5 +18,6 @@ public class VirtualPetApp {
 //		System.out.println("Your Pet is " + name);
 
 	}
+		
 
 }
