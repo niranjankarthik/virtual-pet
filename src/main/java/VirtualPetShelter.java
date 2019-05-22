@@ -31,6 +31,14 @@ public class VirtualPetShelter {
 		return petAttributes;
 	}
 
+	public ArrayList<ArrayList<String>> getAllAttributes() {
+		ArrayList<ArrayList<String>> allAttributes = new ArrayList<ArrayList<String>>();
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			allAttributes.add(getPetAttributes(virtualPet.getName()));
+		}
+		return allAttributes;
+	}
+
 	
 	
 }

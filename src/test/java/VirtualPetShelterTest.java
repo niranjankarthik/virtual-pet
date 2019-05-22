@@ -75,5 +75,41 @@ public class VirtualPetShelterTest {
 		expectedPetAttributes.add("true");
 		assertThat(petAttributes, is(expectedPetAttributes));
 	}
-	
+	@Test
+	public void shouldBeAbleToReturnAllAttributesOfAllPetsToArrayList() {
+		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		underTest.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
+		underTest.addPetToShelter(new VirtualPet("Matt", "Dog"));
+		ArrayList<String> expectedFredAttributes = new ArrayList<String>();
+		expectedFredAttributes.add("Fred");
+		expectedFredAttributes.add("Cat");
+		expectedFredAttributes.add("10");
+		expectedFredAttributes.add("true");
+		expectedFredAttributes.add("10");
+		expectedFredAttributes.add("6");
+		expectedFredAttributes.add("true");
+		ArrayList<String> expectedLawrenceAttributes = new ArrayList<String>();
+		expectedLawrenceAttributes.add("Lawrence");
+		expectedLawrenceAttributes.add("Dog");
+		expectedLawrenceAttributes.add("10");
+		expectedLawrenceAttributes.add("true");
+		expectedLawrenceAttributes.add("10");
+		expectedLawrenceAttributes.add("6");
+		expectedLawrenceAttributes.add("true");
+		ArrayList<String> expectedMattAttributes = new ArrayList<String>();
+		expectedMattAttributes.add("Matt");
+		expectedMattAttributes.add("Dog");
+		expectedMattAttributes.add("10");
+		expectedMattAttributes.add("true");
+		expectedMattAttributes.add("10");
+		expectedMattAttributes.add("6");
+		expectedMattAttributes.add("true");
+		ArrayList<ArrayList<String>> expectedAllAttributes = new ArrayList<ArrayList<String>>();
+		expectedAllAttributes.add(expectedFredAttributes);
+		expectedAllAttributes.add(expectedLawrenceAttributes);
+		expectedAllAttributes.add(expectedMattAttributes);
+		ArrayList<ArrayList<String>> allAttributes = underTest.getAllAttributes();
+		assertThat(allAttributes, containsInAnyOrder(expectedFredAttributes, expectedLawrenceAttributes, expectedMattAttributes));
+		
+	}
 }
