@@ -45,6 +45,10 @@ public class PrettyVirtualPetShelterConsoleOutput {
 		System.out.printf("|%s", make10CharacterStringWithDashes("BoredomCounter"));
 		System.out.printf("|%s", make10CharacterStringWithDashes("Ownership"));
 		System.out.println("|");
+		for (int i = 0; i < 7; i++) {
+			System.out.printf("|%s", make10CharacterStringWithDashes(""));
+		}
+		System.out.println("|");
 	}
 	private static void printPetAttributes(VirtualPetShelter virtualPetShelter, String name) {
 		printPetAttributesHeader();
