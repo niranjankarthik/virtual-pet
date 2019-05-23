@@ -12,10 +12,6 @@ public class PrettyVirtualPetShelterConsoleOutput {
 		myShelter.addPetToShelter(new VirtualPet("Joe", "Systematic Dog"));
 		myShelter.addPetToShelter(new VirtualPet("Scott", "Smart Dog"));
 
-		printPetAttributesHeader();
-		printSinglePetAttributes(myShelter, "Sam the Firehouse Cat");
-		printSinglePetAttributes(myShelter, "Lawrence");
-		System.out.println();
 		printPetAttributes(myShelter, "Isaac");
 		System.out.println();
 		printAllPetAttributes(myShelter);
