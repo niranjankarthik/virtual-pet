@@ -18,6 +18,8 @@ public class VirtualPetShelter {
 		}
 		return allNames;
 	}
+	
+	
 
 	public ArrayList<String> getPetAttributes(String name) {
 		ArrayList<String> petAttributes = new ArrayList<String>();
@@ -37,6 +39,23 @@ public class VirtualPetShelter {
 			allAttributes.add(getPetAttributes(virtualPet.getName()));
 		}
 		return allAttributes;
+	}
+	public VirtualPet getSinglePet(String name) {
+		return virtualPetsMap.get(name);
+		
+
+	
+	
+	//	VirtualPet petTag = virtualPetsMap.get(name);
+		
+	//	return petTag;
+	}
+	public void showAllPetsAndTheirStats() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			System.out.println(virtualPet.getName() + " " + virtualPet.getSpecies() + virtualPet.getBoredom() + " " +virtualPet.getHunger() + " " + virtualPet.getThirst() + " " + virtualPet.getOwnership() + " ");
+			
+		}
+		
 	}
 
 	

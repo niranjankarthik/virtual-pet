@@ -104,12 +104,17 @@ public class VirtualPetShelterTest {
 		expectedMattAttributes.add("10");
 		expectedMattAttributes.add("6");
 		expectedMattAttributes.add("true");
-		ArrayList<ArrayList<String>> expectedAllAttributes = new ArrayList<ArrayList<String>>();
-		expectedAllAttributes.add(expectedFredAttributes);
-		expectedAllAttributes.add(expectedLawrenceAttributes);
-		expectedAllAttributes.add(expectedMattAttributes);
 		ArrayList<ArrayList<String>> allAttributes = underTest.getAllAttributes();
 		assertThat(allAttributes, containsInAnyOrder(expectedFredAttributes, expectedLawrenceAttributes, expectedMattAttributes));
+	}
+	
+	@Test
+	public void shouldPutFredIntoShelterAndShouldBeAbleToGetFredAndFredsStats() {
+		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		assertThat("Fred", is(resultPet.getName()));
+		assertThat("Cat", is(resultPet.getSpecies()));
+		assertThat( true , is(resultPet.getOwnership()));
 		
 	}
 }
