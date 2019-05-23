@@ -37,6 +37,10 @@ public class VirtualPetApp {
 				virtualPet1 = new VirtualPet(name, species);
 				myShelter.addPetToShelter(virtualPet1);
 			}
+			if (userChoice.equals("2")) {
+				System.out.println("Feed all pets or single?");
+				myShelter.feedAllSnackMethod();
+			}
 			
 			
 			

@@ -52,12 +52,16 @@ public class VirtualPetShelter {
 	}
 	public void showAllPetsAndTheirStats() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-			System.out.println(virtualPet.getName() + " " + virtualPet.getSpecies() + virtualPet.getBoredom() + " " +virtualPet.getHunger() + " " + virtualPet.getThirst() + " " + virtualPet.getOwnership() + " ");
-			
+			System.out.println(virtualPet.getName() + " " + virtualPet.getSpecies() + " " + virtualPet.getBoredom() + " " +virtualPet.getHunger() + " " + virtualPet.getThirst() + " " + virtualPet.getOwnership() + " ");
 		}
-		
 	}
-
+	public void feedAllSnackMethod() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			virtualPet.feedSnack();
+		}
+	}
+	
+		
 	
 	
 }
