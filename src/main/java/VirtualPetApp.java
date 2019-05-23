@@ -27,7 +27,19 @@ public class VirtualPetApp {
 				break;
 			}
 			if (userChoice.equals("3")) {
-				myShelter.showAllPetsAndTheirStats();	
+				System.out.println("Press 1 to show single pet stats");
+				System.out.println("Press 2 to show all pet stats");
+				System.out.println("Any other input returns you to main menu");
+				userChoice = input.nextLine();
+				if(userChoice.equals("1")) {
+					System.out.println("Which pet's stats do you want to see?");
+					userChoice = input.nextLine();
+					ConsoleOutput.printPetAttributes(myShelter, userChoice);
+				} else if(userChoice.equals("2")) {
+					ConsoleOutput.printAllPetAttributes(myShelter);
+				} else {
+					continue;
+				}
 			}
 			if (userChoice.equals("1")) {
 				System.out.println("Please enter a Pet Name");
