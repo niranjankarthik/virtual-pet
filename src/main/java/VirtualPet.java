@@ -1,5 +1,11 @@
 
-public class VirtualPet {
+public class VirtualPet extends VirtualPetSuperClass {
+
+
+	int hunger;
+
+	int thirst;
+	private boolean rabiesStatus;
 
 	private String name;
 	private int hunger;
@@ -12,6 +18,7 @@ public class VirtualPet {
 	private int soilRate;
 	
 
+
 	public VirtualPet(String name, String species) {
 		this.name = name;
 		this.species = species;
@@ -20,6 +27,7 @@ public class VirtualPet {
 		this.boredomCounter = 6;
 		this.ownership = true;
 		this.soilRate =5;
+
 	}
 	public VirtualPet(String name, String species, int age) {
 		this.name = name;
@@ -34,6 +42,11 @@ public class VirtualPet {
 	public int getHunger() {
 		return this.hunger;
 	}
+
+	public int getThirst() {
+		return thirst;
+	}
+
 	public boolean getBoredom() {
 		if(boredomCounter > 5) {
 			return true;
@@ -59,6 +72,7 @@ public class VirtualPet {
 	public int getAge() {
 		return age;
 	}
+
 	public void feedMeal() {
 		this.hunger = 0;
 	}
@@ -71,6 +85,7 @@ public class VirtualPet {
 	public void giveDrink() {
 		this.thirst = 0;
 	}
+
 	public void play() {
 //		this.boredom = false;
 		this.boredomCounter -= 3;
@@ -96,12 +111,14 @@ public class VirtualPet {
 	public void sendPetToShelter() {
 		this.ownership = false;
 	}
+
 	public void contractRabies() {
 		this.rabiesStatus = true;
 	}
 	public boolean getRabiesStatus() {
 		return rabiesStatus;
 	}
+
 	public void incrementAge() {
 		age ++;
 		
@@ -113,6 +130,7 @@ public class VirtualPet {
 		this.soilRate = 0;
 		
 	}
+
 	
 	
 }

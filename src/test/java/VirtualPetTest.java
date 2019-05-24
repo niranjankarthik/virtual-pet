@@ -11,16 +11,17 @@ public class VirtualPetTest {
 
 	@Before
 	public void setup() {
-		VirtualPet underTest = new VirtualPet("", "");
+		VirtualPetSuperClass underTest = new VirtualPet("", "");
 	}
 
 	@Test
 	public void shouldBeAbleToCreatePet() {
+	VirtualPetSuperClass underTest = new VirtualPet("", "");
 	}
 
 	@Test
 	public void petShouldHaveName() {
-		VirtualPet underTest = new VirtualPet("Jeff", "");
+		VirtualPetSuperClass underTest = new VirtualPet("Jeff", "");
 		String name = underTest.getName();
 		assertEquals("Jeff", name);
 	}
@@ -249,14 +250,14 @@ public class VirtualPetTest {
 
 	@Test
 	public void speciesDogShouldExists() {
-		VirtualPet underTest = new VirtualPet("", "dog");
+		VirtualPetSuperClass underTest = new VirtualPet("", "dog");
 		String species = underTest.getSpecies();
 		assertEquals("dog", species);
 	}
 
 	@Test
 	public void speciesCatShouldExists() {
-		VirtualPet underTest = new VirtualPet("", "cat");
+		VirtualPetSuperClass underTest = new VirtualPet("", "cat");
 		String species = underTest.getSpecies();
 		assertEquals("cat", species);
 	}
@@ -277,7 +278,7 @@ public class VirtualPetTest {
 
 	@Test
 	public void shouldBeAbleToSetInitialAgeToThree() {
-		VirtualPet underTestInitialAge = new VirtualPet("", "", 3);
+		VirtualPetSuperClass underTestInitialAge = new VirtualPet("", "", 3);
 		int initialAge = underTestInitialAge.getAge();
 		assertEquals(3, initialAge);
 	}

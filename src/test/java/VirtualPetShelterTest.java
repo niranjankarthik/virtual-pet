@@ -111,7 +111,7 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldPutFredIntoShelterAndShouldBeAbleToGetFredAndFredsStats() {
 		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
-		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		VirtualPetSuperClass resultPet = underTest.getSinglePet("Fred");
 		assertThat("Fred", is(resultPet.getName()));
 		assertThat("Cat", is(resultPet.getSpecies()));
 		assertThat( true , is(resultPet.getOwnership()));
