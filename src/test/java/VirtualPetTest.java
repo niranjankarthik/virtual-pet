@@ -275,5 +275,27 @@ public class VirtualPetTest {
 		int initialAge = underTestInitialAge.getAge();
 		assertEquals(3, initialAge);
 	}
+	@Test
+	public void shouldHaveDefaultSoilRateOf5() {
+		int soilRate = underTest.getSoilRate();
+		assertEquals(5, soilRate);
+	
+	}
+	@Test
+	public void soilRateShouldGoFrom5to0AfterWalk() {
+		int soilRateBeforeWalk = underTest.getSoilRate();
+		underTest.walk();
+		int soilRateAfterWalk = underTest.getSoilRate();
+		assertEquals(0, soilRateAfterWalk);
+	}
+	@Test
+	public void soilRateShouldTick() {
+		underTest.walk();
+		underTest.tick();
+		int soilRateAfterTick = underTest.getSoilRate();
+		assertEquals(1, soilRateAfterTick);
+	}
+	
+	
 
 }
