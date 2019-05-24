@@ -28,7 +28,7 @@ public class ConsoleOutput {
 //		printAllPetAttributes(myShelter);
 //	}
 	private static String makeNCharacterStringWithDashes(String inputString, int length) {
-		inputString.trim();
+//		inputString.trim();
 		if(inputString.length() > length) {
 			inputString = inputString.substring(0, length);
 		}
