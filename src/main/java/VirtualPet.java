@@ -1,19 +1,10 @@
 
-public class VirtualPet {
+public class VirtualPet extends VirtualPetSuperClass {
 
-	private String name;
-	private int hunger;
+	int hunger;
 
-	private boolean boredom;
-
-	private int thirst;
-	private int boredomCounter;
-	private boolean ownership;
+	int thirst;
 	private boolean rabiesStatus;
-	private String species;
-	private int age;
-	
-
 	public VirtualPet(String name, String species) {
 		this.name = name;
 		this.species = species;
@@ -21,7 +12,7 @@ public class VirtualPet {
 		this.boredom = true;
 		this.thirst = 10;
 		this.boredomCounter = 6;
-		this.ownership = true;
+		this.ownership = 	true;
 	}
 	public VirtualPet(String name, String species, int age) {
 		this.name = name;
@@ -34,29 +25,11 @@ public class VirtualPet {
 		this.ownership = true;
 		
 	}
-	public String getName() {
-		return this.name;
-	}
 	public int getHunger() {
 		return this.hunger;
 	}
-	public boolean getBoredom() {
-		return boredom;
-	}
 	public int getThirst() {
 		return thirst;
-	}
-	public int getBoredomCounter() {
-		return boredomCounter;	
-	}
-	public boolean getOwnership() {
-		return ownership;
-	}
-	public String getSpecies() {
-		return species;
-	}
-	public int getAge() {
-		return age;
 	}
 	public void feedMeal() {
 		this.hunger = 0;
@@ -67,42 +40,14 @@ public class VirtualPet {
 			this.hunger = 0;
 		}
 	}
-	public void play() {
-		this.boredom = false;
-		this.boredomCounter -= 3;
-		if (this.boredomCounter < 0) {
-			this.boredomCounter = 0;		
-		}
-	}
-	public void tick() {	
-		this.hunger += 10;
-		this.thirst += 20;
-		this.boredomCounter += 1;
-		if(this.boredomCounter > 10) {
-			this.boredomCounter = 10;
-		}
-		if(this.thirst > 100) {
-			this.thirst = 100;
-		}
-		if(this.hunger > 100) {
-			this.hunger = 100;
-		}
-	}
 	public void giveDrink() {
 		this.thirst = 0;
-	}
-	public void sendPetToShelter() {
-		this.ownership = false;
 	}
 	public void contractRabies() {
 		this.rabiesStatus = true;
 	}
 	public boolean getRabiesStatus() {
 		return rabiesStatus;
-	}
-	public void incrementAge() {
-		age ++;
-		
 	}
 	
 	

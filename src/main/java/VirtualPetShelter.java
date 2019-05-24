@@ -13,7 +13,7 @@ public class VirtualPetShelter {
 
 	public ArrayList<String> getAllNames() {
 		ArrayList<String> allNames = new ArrayList<String>();
-		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+		for (VirtualPetSuperClass virtualPet : virtualPetsMap.values()) {
 			allNames.add(virtualPet.getName());
 		}
 		return allNames;
@@ -35,12 +35,12 @@ public class VirtualPetShelter {
 
 	public ArrayList<ArrayList<String>> getAllAttributes() {
 		ArrayList<ArrayList<String>> allAttributes = new ArrayList<ArrayList<String>>();
-		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+		for (VirtualPetSuperClass virtualPet : virtualPetsMap.values()) {
 			allAttributes.add(getPetAttributes(virtualPet.getName()));
 		}
 		return allAttributes;
 	}
-	public VirtualPet getSinglePet(String name) {
+	public VirtualPetSuperClass getSinglePet(String name) {
 		return virtualPetsMap.get(name);
 		
 
