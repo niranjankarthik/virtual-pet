@@ -2,33 +2,8 @@ import java.util.ArrayList;
 
 public class ConsoleOutput {
 
-//	public static void main(String[] args) {
-//		VirtualPetShelter myShelter = new VirtualPetShelter();
-//
-//		myShelter.addPetToShelter(new VirtualPet("Sam the Firehouse Cat", "Generic Cat"));
-//		myShelter.addPetToShelter(new VirtualPet("Lawrence", "Sane Dog"));
-//		myShelter.addPetToShelter(new VirtualPet("Matt", "Crazy Dog"));
-//		myShelter.addPetToShelter(new VirtualPet("Isaac", "Howler Monkey"));
-//		myShelter.addPetToShelter(new VirtualPet("Joe", "Systematic Dog"));
-//		myShelter.addPetToShelter(new VirtualPet("Scott", "Smart Dog"));
-////
-////		printPetAttributes(myShelter, "Isaac");
-////		System.out.println();
-////		printAllPetAttributes(myShelter);
-//		System.out.println(make10CharacterStringWithDashes("Supercalifragalisticgespiallidocifuckingshit"));
-//		System.out.println(make10CharacterStringWithDashes("Bear"));
-//		System.out.println(make10CharacterStringWithDashes("Cat"));
-//		System.out.println();
-//		printSinglePetAttributes(myShelter, "Isaac");
-//		System.out.println();
-//		printPetAttributesHeader();
-//		System.out.println();
-//		printPetAttributes(myShelter, "Lawrence");
-//		System.out.println();
-//		printAllPetAttributes(myShelter);
-//	}
 	private static String makeNCharacterStringWithDashes(String inputString, int length) {
-		inputString.trim();
+//		inputString.trim();
 		if(inputString.length() > length) {
 			inputString = inputString.substring(0, length);
 		}

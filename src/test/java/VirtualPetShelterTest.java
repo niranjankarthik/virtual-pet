@@ -22,19 +22,19 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldBeAbleToGetFredNameFromTheShelter() {
 		underTest.addPetToShelter(new VirtualPet("Fred", "Dog"));		
-		String expectedName = underTest.virtualPetsMap.get("Fred").getName();
+		String expectedName = underTest.getPetName("Fred");
 		assertEquals("Fred", expectedName);
 	}
 	@Test
 	public void shoudlBeAbleToGetPetLawrenceNameFromTheShelter() {
 		underTest.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
-		String expectedName = underTest.virtualPetsMap.get("Lawrence").getName();
+		String expectedName = underTest.getPetName("Lawrence");
 		assertEquals("Lawrence", expectedName);
 	}
 	@Test
 	public void shouldBeAbleToGetFredTheDogSpeciesFromTheShelter() {
 		underTest.addPetToShelter(new VirtualPet("Fred", "Dog"));		
-		String expectedSpecies = underTest.virtualPetsMap.get("Fred").getSpecies();
+		String expectedSpecies = underTest.getPetSpecies("Fred");
 		assertEquals("Dog", expectedSpecies);
 	}
 	@Test
@@ -42,13 +42,13 @@ public class VirtualPetShelterTest {
 		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
 		underTest.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
 		underTest.addPetToShelter(new VirtualPet("Matt", "Dog"));
-		int expectedNumberOfPets = underTest.virtualPetsMap.size();
+		int expectedNumberOfPets = underTest.getHowManyPets();
 		assertEquals(3, expectedNumberOfPets);
 	}
 	@Test
 	public void shouldBeAbleToCheckFredHunger() {
 		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
-		int expectedHunger = underTest.virtualPetsMap.get("Fred").getHunger();
+		int expectedHunger = underTest.getPetHunger("Fred");
 		assertEquals(10, expectedHunger);
 	}
 	@Test
@@ -116,5 +116,28 @@ public class VirtualPetShelterTest {
 		assertThat("Cat", is(resultPet.getSpecies()));
 		assertThat( true , is(resultPet.getOwnership()));
 		
+	}
+	
+	@Test
+	public void petSentToShelterShouldNotBeWFedWhenFeedAllSnackMethodIsCalled() {
+		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		underTest.sendPetToShelter("Fred");
+		underTest.feedAllSnackMethod();
+		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		assertThat(resultPet.getHunger(), is(10));
+	}
+	@Test
+	public void petNotSentToShelterShouldNotBeWFedWhenFeedAllSnackMethodIsCalled() {
+		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		underTest.feedAllSnackMethod();
+		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		assertThat(resultPet.getHunger(), is(8));
+	}
+	@Test
+	public void imJustMessingAroundHere() {
+		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		underTest.feedPetMeal("Fred");
+		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		assertThat(resultPet.getHunger(), is(0));
 	}
 }
