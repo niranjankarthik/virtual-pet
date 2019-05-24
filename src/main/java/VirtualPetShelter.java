@@ -4,11 +4,46 @@ import java.util.Map;
 
 public class VirtualPetShelter {
 
-	public Map<String, VirtualPet> virtualPetsMap = new HashMap<>();
+	private Map<String, VirtualPet> virtualPetsMap = new HashMap<>();
 
 	public void addPetToShelter(VirtualPet virtualPet) {
 		virtualPetsMap.put(virtualPet.getName(), virtualPet);
-		
+	}
+	
+	public String getPetName(String name) {
+		return virtualPetsMap.get(name).getName();
+	}
+	public int getPetHunger(String name) {
+		return virtualPetsMap.get(name).getHunger();
+	}
+	public int getPetThirst(String name) {
+		return virtualPetsMap.get(name).getThirst();
+	}
+	public boolean getPetBoredom(String name) {
+		return virtualPetsMap.get(name).getBoredom();
+	}
+	public int getPetBoredomCounter(String name) {
+		return virtualPetsMap.get(name).getBoredomCounter();
+	}
+	public boolean getPetOwnership(String name) {
+		return virtualPetsMap.get(name).getOwnership();
+	}
+	public boolean getRabiesStatus(String name) {
+		return virtualPetsMap.get(name).getRabiesStatus();
+	}
+	public String getPetSpecies(String name) {
+		return virtualPetsMap.get(name).getSpecies();
+	}
+	public int getPetAge(String name) {
+		return virtualPetsMap.get(name).getAge();
+	}
+	public int getSoilRate(String name) {
+		return virtualPetsMap.get(name).getSoilRate();
+	}
+	
+	
+	public int getHowManyPets() {
+		return virtualPetsMap.size();
 	}
 
 	public ArrayList<String> getAllNames() {
@@ -19,8 +54,6 @@ public class VirtualPetShelter {
 		return allNames;
 	}
 	
-	
-
 	public ArrayList<String> getPetAttributes(String name) {
 		ArrayList<String> petAttributes = new ArrayList<String>();
 		petAttributes.add(virtualPetsMap.get(name).getName());
@@ -42,13 +75,14 @@ public class VirtualPetShelter {
 	}
 	public VirtualPet getSinglePet(String name) {
 		return virtualPetsMap.get(name);
-		
-
+	}
 	
+	public void sendPetToShelter(String name) {
+		virtualPetsMap.get(name).sendPetToShelter();
+	}
 	
-	//	VirtualPet petTag = virtualPetsMap.get(name);
-		
-	//	return petTag;
+	public void feedPetMeal(String name) {
+		virtualPetsMap.get(name).feedMeal();
 	}
 	public void showAllPetsAndTheirStats() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
@@ -57,11 +91,10 @@ public class VirtualPetShelter {
 	}
 	public void feedAllSnackMethod() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-			virtualPet.feedSnack();
+			if(virtualPet.getOwnership() == true) {
+				virtualPet.feedSnack();				
+			}
 		}
 	}
-	
-		
-	
 	
 }
