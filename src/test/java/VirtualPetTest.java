@@ -72,12 +72,12 @@ public class VirtualPetTest {
 		assertEquals(true, isBored);
 	}
 
-	@Test
-	public void shouldBeAbleToPlayToMakeBoredomFalse() {
-		underTest.play();
-		boolean isBored = underTest.getBoredom();
-		assertEquals(false, isBored);
-	}
+//	@Test
+//	public void shouldBeAbleToPlayToMakeBoredomFalse() {
+//		underTest.play();
+//		boolean isBored = underTest.getBoredom();
+//		assertEquals(false, isBored);
+//	}
 
 	@Test
 	public void hungerShouldGoUpBy10WhenTick() {
@@ -130,6 +130,12 @@ public class VirtualPetTest {
 
 		boolean boredom = underTest.getBoredom();
 		assertEquals(true, boredom);
+	}
+	@Test
+	public void getBoredomShouldReturnFalseIfBoredomCounterIsThree() {
+		underTest.play();
+		boolean boredom = underTest.getBoredom();
+		assertEquals(false, boredom);
 	}
 
 	@Test
