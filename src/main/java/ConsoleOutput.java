@@ -27,34 +27,25 @@ public class ConsoleOutput {
 //		System.out.println();
 //		printAllPetAttributes(myShelter);
 //	}
-	
-	private static String make10CharacterStringWithDashes(String input) {
-		input.trim();
-		if(input.length() > 10) {
-			input = input.substring(0, 10);
+	private static String makeNCharacterStringWithDashes(String inputString, int length) {
+		inputString.trim();
+		if(inputString.length() > length) {
+			inputString = inputString.substring(0, length);
 		}
-		while(input.length() < 10) {
-			if(input.length() % 2 != 0) {
-				input = input + "-";
+		while(inputString.length() < length) {
+			if(inputString.length() % 2 == 0) {
+				inputString = inputString + "-";
 			} else {
-				input = "-" + input;
+				inputString = "-" + inputString;
 			}
 		}
-		return input;
+		return inputString;
+	}
+	private static String make10CharacterStringWithDashes(String input) {
+		return makeNCharacterStringWithDashes(input, 10);
 	}
 	private static String make14CharacterStringWithDashes(String input) {
-		input.trim();
-		if(input.length() > 14) {
-			input = input.substring(0, 14);
-		}
-		while(input.length() < 14) {
-			if(input.length() % 2 != 0) {
-				input = input + "-";
-			} else {
-				input = "-" + input;
-			}
-		}
-		return input;
+		return makeNCharacterStringWithDashes(input, 14);
 	}
 	private static void printSinglePetAttributes(VirtualPetShelter virtualPetShelter, String name) {
 		for(int i = 0; i < 2; i++) {
