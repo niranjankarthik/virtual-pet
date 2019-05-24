@@ -3,9 +3,6 @@ public class VirtualPet {
 
 	private String name;
 	private int hunger;
-
-	private boolean boredom;
-
 	private int thirst;
 	private int boredomCounter;
 	private boolean ownership;
@@ -19,7 +16,6 @@ public class VirtualPet {
 		this.name = name;
 		this.species = species;
 		this.hunger = 10;
-		this.boredom = true;
 		this.thirst = 10;
 		this.boredomCounter = 6;
 		this.ownership = true;
@@ -30,7 +26,6 @@ public class VirtualPet {
 		this.species = species;
 		this.age = age;
 		this.hunger = 10;
-		this.boredom = true;
 		this.thirst = 10;
 		this.boredomCounter = 6;
 		this.ownership = true;
@@ -39,14 +34,18 @@ public class VirtualPet {
 	public int getHunger() {
 		return this.hunger;
 	}
+	public boolean getBoredom() {
+		if(boredomCounter > 5) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	public int getThirst() {
 		return thirst;
 	}
 	public String getName() {
 		return this.name;
-	}
-	public boolean getBoredom() {
-		return boredom;
 	}
 	public int getBoredomCounter() {
 		return boredomCounter;	
@@ -64,7 +63,7 @@ public class VirtualPet {
 		this.hunger = 0;
 	}
 	public void feedSnack() {
-		this.hunger = this.hunger - 2;
+		this.hunger -= 2;
 		if (this.hunger < 0) {
 			this.hunger = 0;
 		}
@@ -73,7 +72,7 @@ public class VirtualPet {
 		this.thirst = 0;
 	}
 	public void play() {
-		this.boredom = false;
+//		this.boredom = false;
 		this.boredomCounter -= 3;
 		if (this.boredomCounter < 0) {
 			this.boredomCounter = 0;		
