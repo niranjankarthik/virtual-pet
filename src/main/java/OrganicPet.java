@@ -5,31 +5,23 @@ public class OrganicPet extends VirtualPet {
 	private int thirst;
 	private boolean rabiesStatus;
 	private int soilRate;
+	private int boredomCounter;
 
 	public OrganicPet(String name, String species) {
-		this.name = name;
-		this.species = species;
+		super(name, species);
+		this.boredomCounter = 6;
 		this.hunger = 10;
 		this.thirst = 10;
-		this.boredomCounter = 6;
-		this.ownership = true;
 		this.soilRate =5;
 
 	}
 	public OrganicPet(String name, String species, int age) {
-		this.name = name;
-		this.species = species;
-		this.age = age;
+		super(name, species, age);
+		this.boredomCounter = 6;
 		this.hunger = 10;
 		this.thirst = 10;
-		this.boredomCounter = 6;
-		this.ownership = true;
-		
 	}
-	public int getHunger() {
-		return this.hunger;
-	}
-
+	
 	public boolean getBoredom() {
 		if(boredomCounter > 5) {
 			return true;
@@ -37,23 +29,17 @@ public class OrganicPet extends VirtualPet {
 			return false;
 		}
 	}
-	public int getThirst() {
-		return thirst;
-	}
-	public String getName() {
-		return this.name;
-	}
+
 	public int getBoredomCounter() {
 		return boredomCounter;	
 	}
-	public boolean getOwnership() {
-		return ownership;
+	
+	public int getHunger() {
+		return this.hunger;
 	}
-	public String getSpecies() {
-		return species;
-	}
-	public int getAge() {
-		return age;
+
+	public int getThirst() {
+		return thirst;
 	}
 
 	public void feedMeal() {
@@ -69,13 +55,7 @@ public class OrganicPet extends VirtualPet {
 		this.thirst = 0;
 	}
 
-	public void play() {
-//		this.boredom = false;
-		this.boredomCounter -= 3;
-		if (this.boredomCounter < 0) {
-			this.boredomCounter = 0;		
-		}
-	}
+	@Override
 	public void tick() {	
 		this.hunger += 10;
 		this.thirst += 20;
@@ -91,20 +71,19 @@ public class OrganicPet extends VirtualPet {
 			this.hunger = 100;
 		}
 	}
-	public void sendPetToShelter() {
-		this.ownership = false;
+	
+	@Override
+	public void play() {
+		this.boredomCounter -= 3;
+		if (this.boredomCounter < 0) {
+			this.boredomCounter = 0;		
+		}
 	}
-
 	public void contractRabies() {
 		this.rabiesStatus = true;
 	}
 	public boolean getRabiesStatus() {
 		return rabiesStatus;
-	}
-
-	public void incrementAge() {
-		age ++;
-		
 	}
 	public int getSoilRate() {
 		return soilRate;
@@ -113,7 +92,4 @@ public class OrganicPet extends VirtualPet {
 		this.soilRate = 0;
 		
 	}
-
-	
-	
 }
