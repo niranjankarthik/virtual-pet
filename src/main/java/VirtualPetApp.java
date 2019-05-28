@@ -10,7 +10,7 @@ public class VirtualPetApp {
 		String name = input.nextLine();
 		System.out.println("Please enter a Pet Species");
 		String species = input.nextLine();
-		VirtualPet virtualPet1 = new VirtualPet(name, species);
+		OrganicPet virtualPet1 = new OrganicPet(name, species);
 		myShelter.addPetToShelter(virtualPet1);
 		System.out.println("Your Pet is " + name + " the " + species);
 	
@@ -46,7 +46,7 @@ public class VirtualPetApp {
 				name = input.nextLine();
 				System.out.println("Please enter a Pet Species");
 				species = input.nextLine();
-				virtualPet1 = new VirtualPet(name, species);
+				virtualPet1 = new OrganicPet(name, species);
 				myShelter.addPetToShelter(virtualPet1);
 			}
 			if (userChoice.equals("2")) {

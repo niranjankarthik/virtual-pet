@@ -7,28 +7,28 @@ import org.junit.Test;
 
 public class VirtualPetTest {
 
-	VirtualPet underTest = new VirtualPet("", "");
+	OrganicPet underTest = new OrganicPet("", "");
 
 	@Before
 	public void setup() {
-		VirtualPetSuperClass underTest = new VirtualPet("", "");
+		VirtualPet underTest = new OrganicPet("", "");
 	}
 
 	@Test
 	public void shouldBeAbleToCreatePet() {
-	VirtualPetSuperClass underTest = new VirtualPet("", "");
+	VirtualPet underTest = new OrganicPet("", "");
 	}
 
 	@Test
 	public void petShouldHaveName() {
-		VirtualPetSuperClass underTest = new VirtualPet("Jeff", "");
+		VirtualPet underTest = new OrganicPet("Jeff", "");
 		String name = underTest.getName();
 		assertEquals("Jeff", name);
 	}
 
 	@Test
 	public void shouldHaveDefaultHunger() {
-		VirtualPet underTest = new VirtualPet("Steve", "");
+		OrganicPet underTest = new OrganicPet("Steve", "");
 		int hunger = underTest.getHunger();
 		assertEquals(10, hunger);
 	}
@@ -250,14 +250,14 @@ public class VirtualPetTest {
 
 	@Test
 	public void speciesDogShouldExists() {
-		VirtualPetSuperClass underTest = new VirtualPet("", "dog");
+		VirtualPet underTest = new OrganicPet("", "dog");
 		String species = underTest.getSpecies();
 		assertEquals("dog", species);
 	}
 
 	@Test
 	public void speciesCatShouldExists() {
-		VirtualPetSuperClass underTest = new VirtualPet("", "cat");
+		VirtualPet underTest = new OrganicPet("", "cat");
 		String species = underTest.getSpecies();
 		assertEquals("cat", species);
 	}
@@ -278,7 +278,7 @@ public class VirtualPetTest {
 
 	@Test
 	public void shouldBeAbleToSetInitialAgeToThree() {
-		VirtualPetSuperClass underTestInitialAge = new VirtualPet("", "", 3);
+		VirtualPet underTestInitialAge = new OrganicPet("", "", 3);
 		int initialAge = underTestInitialAge.getAge();
 		assertEquals(3, initialAge);
 	}

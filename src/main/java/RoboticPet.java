@@ -1,5 +1,5 @@
 
-public class RoboticPet extends VirtualPetSuperClass{
+public class RoboticPet extends VirtualPet{
 
 	public int oil;
 	
