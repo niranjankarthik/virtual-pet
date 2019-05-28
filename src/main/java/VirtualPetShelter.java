@@ -73,7 +73,8 @@ public class VirtualPetShelter {
 		}
 		return allAttributes;
 	}
-	public VirtualPetSuperClass getSinglePet(String name) {
+	
+	public VirtualPet getSinglePet(String name) {
 		return virtualPetsMap.get(name);
 	}
 	
@@ -88,12 +89,14 @@ public class VirtualPetShelter {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
 			System.out.println(virtualPet.getName() + " " + virtualPet.getSpecies() + " " + virtualPet.getBoredom() + " " +virtualPet.getHunger() + " " + virtualPet.getThirst() + " " + virtualPet.getOwnership() + " ");
 		}
+		
 	}
 	public void feedAllSnackMethod() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
 			if(virtualPet.getOwnership() == true) {
 				virtualPet.feedSnack();				
 			}
+			
 		}
 	}
 	
