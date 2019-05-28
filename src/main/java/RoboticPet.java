@@ -1,31 +1,51 @@
 
 public class RoboticPet extends VirtualPet{
 
-	private int oil;
+	private int oilValue;
+	private int maintenanceValue;
 
 	public RoboticPet(String name, String species) {
 		super(name, species);
-		this.oil = 50;
+		this.oilValue = 50;
+		this.maintenanceValue = 50;
 	}
 	
 	public RoboticPet(String name, String species, int age) {
 		super(name, species, age);
-		this.oil = 50;
+		this.oilValue = 50;
+		this.maintenanceValue = 50;
 	}
 
-	public int getOil() {
-		return oil;
+	public int getOilValue() {
+		if(oilValue > 100) {
+			oilValue = 100;
+		}
+		if (oilValue < 0) {
+			oilValue = 0;
+		}
+		return oilValue;
 	}
 
 	public void addOil() {
-		oil += 25;
-		if(oil > 100) {
-			oil = 100;
-		}
+		oilValue += 25;
 	}
+	
+	
 	
 	@Override
 	public void tick() {
-		oil -= 3;
+		oilValue -= 2;
+		maintenanceValue -= 3;
+	}
+
+	public int getMaintenanceValue() {
+		if(maintenanceValue < 0) {
+			maintenanceValue = 0;
+		}
+		return maintenanceValue;
+	}
+
+	public void doMaintenance() {
+		maintenanceValue = 100;
 	}
 }

@@ -17,16 +17,16 @@ public class RoboticPetTest {
 	@Test
 	public void shouldBeAbleToGetInitialOilValueOf50() {
 		RoboticPet underTest = new RoboticPet(null, null, 0);
-		int testOilValue = underTest.getOil();
+		int testOilValue = underTest.getOilValue();
 		assertEquals(50, testOilValue);
 	}
 	
 	@Test
 	public void addingOilShouldIncreaseOilValueBy25() {
 		RoboticPet underTest = new RoboticPet(null, null, 0);
-		int initialOilValue = underTest.getOil();
+		int initialOilValue = underTest.getOilValue();
 		underTest.addOil();
-		int finalOilValue = underTest.getOil();
+		int finalOilValue = underTest.getOilValue();
 		assertEquals(initialOilValue + 25, finalOilValue);
 	}
 	
@@ -36,7 +36,60 @@ public class RoboticPetTest {
 		underTest.addOil();
 		underTest.addOil();
 		underTest.addOil();
-		int finalOilValue = underTest.getOil();
+		int finalOilValue = underTest.getOilValue();
 		assertEquals(100, finalOilValue);
+	}
+	
+	@Test
+	public void tickShouldDecreaseOilValueBy2() {
+		RoboticPet underTest = new RoboticPet(null, null, 0);
+		int initialOilValue = underTest.getOilValue();
+		underTest.tick();
+		int finalOilValue = underTest.getOilValue();
+		assertEquals(initialOilValue - 2, finalOilValue);
+	}
+	
+	@Test
+	public void tickShouldNotDecreaseOilBelowZero() {
+		RoboticPet underTest = new RoboticPet(null, null, 0);
+		for(int i = 0; i < 26; i++) {
+			underTest.tick();
+		}
+		int finalOilValue = underTest.getOilValue();
+		assertEquals(0, finalOilValue);
+	}
+	
+	@Test
+	public void shouldHaveInitialMaintenanceValueOf50() {
+		RoboticPet underTest = new RoboticPet(null, null, 0);
+		int testMaintenanceValue = underTest.getMaintenanceValue();
+		assertEquals(50, testMaintenanceValue);
+	}
+	
+	@Test
+	public void doMaintenanceShouldIncreaseMaintenanceValueTo100() {
+		RoboticPet underTest = new RoboticPet(null, null, 0);
+		underTest.doMaintenance();
+		int testMaintenanceValue = underTest.getMaintenanceValue();
+		assertEquals(100, testMaintenanceValue);
+	}
+	
+	@Test
+	public void tickShouldDecreaseMaintenanceByThree() {
+		RoboticPet underTest = new RoboticPet(null, null, 0);
+		int initialMaintenanceValue = underTest.getMaintenanceValue();
+		underTest.tick();
+		int finalMaintenanceValue = underTest.getMaintenanceValue();
+		assertEquals(initialMaintenanceValue - 3, finalMaintenanceValue);
+	}
+	
+	@Test
+	public void tickShouldNotDecreaseMaintenanceBelowZero() {
+		RoboticPet underTest = new RoboticPet(null, null, 0);
+		for(int i = 0; i < 17; i++) {
+			underTest.tick();
+		}
+		int finalMaintenanceValue = underTest.getMaintenanceValue();
+		assertEquals(0, finalMaintenanceValue);
 	}
 }
