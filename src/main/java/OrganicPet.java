@@ -1,14 +1,10 @@
 
 public class OrganicPet extends VirtualPet {
 
-
-	
 	private int hunger;
 	private int thirst;
 	private boolean rabiesStatus;
 	private int soilRate;
-	
-
 
 	public OrganicPet(String name, String species) {
 		this.name = name;
