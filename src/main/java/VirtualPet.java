@@ -2,11 +2,6 @@
 public class VirtualPet extends VirtualPetSuperClass {
 
 
-	int hunger;
-
-	int thirst;
-	private boolean rabiesStatus;
-
 	private String name;
 	private int hunger;
 	private int thirst;
@@ -41,10 +36,6 @@ public class VirtualPet extends VirtualPetSuperClass {
 	}
 	public int getHunger() {
 		return this.hunger;
-	}
-
-	public int getThirst() {
-		return thirst;
 	}
 
 	public boolean getBoredom() {
