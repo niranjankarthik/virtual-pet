@@ -1,15 +1,30 @@
 
-public class VirtualPet {
+public abstract class VirtualPet {
 
-	protected String name;
-	protected boolean boredom;
-	protected int boredomCounter;
-	protected boolean ownership;
-	protected String species;
-	protected int age;
+	private String name;
+	private boolean boredom;
+	private int boredomCounter;
+	private boolean ownership;
+	private String species;
+	private int age;
 
-	public VirtualPet() {
-		super();
+
+
+	public VirtualPet(String name, String species, int age) {
+		this.name = name;
+		this.boredom = true;
+		this.boredomCounter = 6;
+		this.ownership = true;
+		this.species = species;
+		this.age = age;
+	}
+	public VirtualPet(String name, String species) {
+		this.name = name;
+		this.boredom = true;
+		this.boredomCounter = 6;
+		this.ownership = true;
+		this.species = species;
+		this.age = 0;
 	}
 
 	public String getName() {
