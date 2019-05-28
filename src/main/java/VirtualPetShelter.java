@@ -4,9 +4,9 @@ import java.util.Map;
 
 public class VirtualPetShelter {
 
-	private Map<String, VirtualPet> virtualPetsMap = new HashMap<>();
+	private Map<String, OrganicPet> virtualPetsMap = new HashMap<>();
 
-	public void addPetToShelter(VirtualPet virtualPet) {
+	public void addPetToShelter(OrganicPet virtualPet) {
 		virtualPetsMap.put(virtualPet.getName(), virtualPet);
 	}
 	
@@ -48,7 +48,7 @@ public class VirtualPetShelter {
 
 	public ArrayList<String> getAllNames() {
 		ArrayList<String> allNames = new ArrayList<String>();
-		for (VirtualPetSuperClass virtualPet : virtualPetsMap.values()) {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
 			allNames.add(virtualPet.getName());
 		}
 		return allNames;
@@ -68,13 +68,13 @@ public class VirtualPetShelter {
 
 	public ArrayList<ArrayList<String>> getAllAttributes() {
 		ArrayList<ArrayList<String>> allAttributes = new ArrayList<ArrayList<String>>();
-		for (VirtualPetSuperClass virtualPet : virtualPetsMap.values()) {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
 			allAttributes.add(getPetAttributes(virtualPet.getName()));
 		}
 		return allAttributes;
 	}
 	
-	public VirtualPet getSinglePet(String name) {
+	public OrganicPet getSinglePet(String name) {
 		return virtualPetsMap.get(name);
 	}
 	
@@ -86,13 +86,13 @@ public class VirtualPetShelter {
 		virtualPetsMap.get(name).feedMeal();
 	}
 	public void showAllPetsAndTheirStats() {
-		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+		for (OrganicPet virtualPet : virtualPetsMap.values()) {
 			System.out.println(virtualPet.getName() + " " + virtualPet.getSpecies() + " " + virtualPet.getBoredom() + " " +virtualPet.getHunger() + " " + virtualPet.getThirst() + " " + virtualPet.getOwnership() + " ");
 		}
 		
 	}
 	public void feedAllSnackMethod() {
-		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+		for (OrganicPet virtualPet : virtualPetsMap.values()) {
 			if(virtualPet.getOwnership() == true) {
 				virtualPet.feedSnack();				
 			}

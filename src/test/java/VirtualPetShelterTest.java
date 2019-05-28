@@ -17,53 +17,53 @@ public class VirtualPetShelterTest {
 	
 	@Test
 	public void shouldBeAbleToAddDogFredToShelter() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Dog"));
 	}
 	@Test
 	public void shouldBeAbleToGetFredNameFromTheShelter() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Dog"));		
+		underTest.addPetToShelter(new OrganicPet("Fred", "Dog"));		
 		String expectedName = underTest.getPetName("Fred");
 		assertEquals("Fred", expectedName);
 	}
 	@Test
 	public void shoudlBeAbleToGetPetLawrenceNameFromTheShelter() {
-		underTest.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Lawrence", "Dog"));
 		String expectedName = underTest.getPetName("Lawrence");
 		assertEquals("Lawrence", expectedName);
 	}
 	@Test
 	public void shouldBeAbleToGetFredTheDogSpeciesFromTheShelter() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Dog"));		
+		underTest.addPetToShelter(new OrganicPet("Fred", "Dog"));		
 		String expectedSpecies = underTest.getPetSpecies("Fred");
 		assertEquals("Dog", expectedSpecies);
 	}
 	@Test
 	public void shouldBeAbleToAddThreePetsToTheShelterAndCheckPetsMapSize() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
-		underTest.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
-		underTest.addPetToShelter(new VirtualPet("Matt", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
+		underTest.addPetToShelter(new OrganicPet("Lawrence", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Matt", "Dog"));
 		int expectedNumberOfPets = underTest.getHowManyPets();
 		assertEquals(3, expectedNumberOfPets);
 	}
 	@Test
 	public void shouldBeAbleToCheckFredHunger() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
 		int expectedHunger = underTest.getPetHunger("Fred");
 		assertEquals(10, expectedHunger);
 	}
 	@Test
 	public void shouldBeAbleToReturnAArrayWithAllPetName() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
-		underTest.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
-		underTest.addPetToShelter(new VirtualPet("Matt", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
+		underTest.addPetToShelter(new OrganicPet("Lawrence", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Matt", "Dog"));
 		ArrayList<String> actualAllNames = underTest.getAllNames();
 		assertThat(actualAllNames, containsInAnyOrder("Matt","Fred","Lawrence"));
 	}
 	@Test
 	public void shouldBeAbleToPullAllAttributesForSpecifedPetFredToListArray(){
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
-		underTest.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
-		underTest.addPetToShelter(new VirtualPet("Matt", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
+		underTest.addPetToShelter(new OrganicPet("Lawrence", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Matt", "Dog"));
 		ArrayList<String> petAttributes = underTest.getPetAttributes("Fred");
 		ArrayList<String> expectedPetAttributes = new ArrayList<String>();
 		expectedPetAttributes.add("Fred");
@@ -77,9 +77,9 @@ public class VirtualPetShelterTest {
 	}
 	@Test
 	public void shouldBeAbleToReturnAllAttributesOfAllPetsToArrayList() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
-		underTest.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
-		underTest.addPetToShelter(new VirtualPet("Matt", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
+		underTest.addPetToShelter(new OrganicPet("Lawrence", "Dog"));
+		underTest.addPetToShelter(new OrganicPet("Matt", "Dog"));
 		ArrayList<String> expectedFredAttributes = new ArrayList<String>();
 		expectedFredAttributes.add("Fred");
 		expectedFredAttributes.add("Cat");
@@ -110,8 +110,8 @@ public class VirtualPetShelterTest {
 	
 	@Test
 	public void shouldPutFredIntoShelterAndShouldBeAbleToGetFredAndFredsStats() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
-		VirtualPetSuperClass resultPet = underTest.getSinglePet("Fred");
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
+		VirtualPet resultPet = underTest.getSinglePet("Fred");
 		assertThat("Fred", is(resultPet.getName()));
 		assertThat("Cat", is(resultPet.getSpecies()));
 		assertThat( true , is(resultPet.getOwnership()));
@@ -120,24 +120,24 @@ public class VirtualPetShelterTest {
 	
 	@Test
 	public void petSentToShelterShouldNotBeWFedWhenFeedAllSnackMethodIsCalled() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
 		underTest.sendPetToShelter("Fred");
 		underTest.feedAllSnackMethod();
-		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		OrganicPet resultPet = underTest.getSinglePet("Fred");
 		assertThat(resultPet.getHunger(), is(10));
 	}
 	@Test
 	public void petNotSentToShelterShouldNotBeWFedWhenFeedAllSnackMethodIsCalled() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
 		underTest.feedAllSnackMethod();
-		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		OrganicPet resultPet = underTest.getSinglePet("Fred");
 		assertThat(resultPet.getHunger(), is(8));
 	}
 	@Test
 	public void imJustMessingAroundHere() {
-		underTest.addPetToShelter(new VirtualPet("Fred", "Cat"));
+		underTest.addPetToShelter(new OrganicPet("Fred", "Cat"));
 		underTest.feedPetMeal("Fred");
-		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		OrganicPet resultPet = underTest.getSinglePet("Fred");
 		assertThat(resultPet.getHunger(), is(0));
 	}
 }
