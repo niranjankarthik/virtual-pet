@@ -23,5 +23,9 @@ public class RoboticPet extends VirtualPet{
 			oil = 100;
 		}
 	}
-
+	
+	@Override
+	public void tick() {
+		oil -= 3;
+	}
 }

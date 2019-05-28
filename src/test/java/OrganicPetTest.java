@@ -5,7 +5,7 @@ import org.junit.Test;
 
 //import org.wecancodeit.VirtualPet;
 
-public class VirtualPetTest {
+public class OrganicPetTest {
 
 	OrganicPet underTest = new OrganicPet("", "");
 
