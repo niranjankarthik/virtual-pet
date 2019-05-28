@@ -6,15 +6,15 @@ public class OrganicCatTest {
 
 	@Test
 	public void shouldHaveOrganicCat() {
-		OrganicCat underTest = new OrganicCat(null, null);
+		OrganicCat underTest = new OrganicCat(null);
 		
 	}
 	
 	@Test
 	public void shouldHaveSpeciesOrganicCat() {
-		OrganicCat underTest = new OrganicCat(null, null);
+		OrganicCat underTest = new OrganicCat(null);
 		String nameSpecies = underTest.getSpecies();
-		assertEquals("organicCat", nameSpecies);
+		assertEquals("Organic Cat", nameSpecies);
 	}
 	
 	

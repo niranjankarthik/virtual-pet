@@ -1,9 +1,9 @@
 
 public class RoboticDog extends RoboticPet{
 
-	public RoboticDog(String name, String species) {
-		super(name, species);
-		this.species = "Robotic Dog";
+	public RoboticDog(String name) {
+		super(name, "Robotic Dog");
+		
 
 	}
 
