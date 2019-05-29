@@ -79,6 +79,17 @@ public class VirtualPetShelterTest {
 		assertThat(((OrganicPet)resultPet).getHunger(), is(10));
 	}
 	@Test
+	public void shouldBeAbleToMaintainMultiplePets() {
+		underTest.addRoboticPetToShelter(new RoboticDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("Stan"));
+		underTest.MaintainAllMethod();
+		int Main1 = underTest.getPetMaintenanceHealth("Fred");
+		int Main2 = underTest.getPetMaintenanceHealth("Fred");
+		assertThat(Main1, is(100));
+		assertThat(Main2, is(100));
+		
+	}
+	@Test
 	public void petNotSentToShelterShouldNotBeWFedWhenFeedAllSnackMethodIsCalled() {
 		underTest.addOrganicPetToShelter(new OrganicPet("Fred", "Cat"));
 		underTest.feedAllSnackMethod();
