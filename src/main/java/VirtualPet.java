@@ -43,9 +43,6 @@ public abstract class VirtualPet {
 
 	}
 	
-	public void walk() {
-		
-	}
 
 	public void sendPetToShelter() {
 		this.ownership = false;
