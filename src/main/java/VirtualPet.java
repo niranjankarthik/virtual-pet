@@ -42,13 +42,16 @@ public abstract class VirtualPet {
 	public void play() {
 
 	}
+	
+	public void walk() {
+		
+	}
 
 	public void sendPetToShelter() {
 		this.ownership = false;
 	}
 
 	public void incrementAge() {
-		age ++;
-		
+		age ++;	
 	}
 }

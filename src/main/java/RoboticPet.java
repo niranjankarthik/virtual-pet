@@ -2,18 +2,18 @@
 public class RoboticPet extends VirtualPet{
 
 	private int oilValue;
-	private int maintenanceValue;
+	private int maintenanceHealth;
 
 	public RoboticPet(String name, String species) {
 		super(name, species);
 		this.oilValue = 50;
-		this.maintenanceValue = 50;
+		this.maintenanceHealth = 50;
 	}
 	
 	public RoboticPet(String name, String species, int age) {
 		super(name, species, age);
 		this.oilValue = 50;
-		this.maintenanceValue = 50;
+		this.maintenanceHealth = 50;
 	}
 
 	public int getOilValue() {
@@ -30,22 +30,25 @@ public class RoboticPet extends VirtualPet{
 		oilValue += 25;
 	}
 	
-	
-	
 	@Override
 	public void tick() {
 		oilValue -= 2;
-		maintenanceValue -= 3;
+		maintenanceHealth -= 3;
+	}
+	
+	@Override
+	public void walk() {
+		maintenanceHealth -= 10;
 	}
 
-	public int getMaintenanceValue() {
-		if(maintenanceValue < 0) {
-			maintenanceValue = 0;
+	public int getMaintenanceHealth() {
+		if(maintenanceHealth < 0) {
+			maintenanceHealth = 0;
 		}
-		return maintenanceValue;
+		return maintenanceHealth;
 	}
 
 	public void doMaintenance() {
-		maintenanceValue = 100;
+		maintenanceHealth = 100;
 	}
 }

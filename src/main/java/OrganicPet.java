@@ -88,8 +88,9 @@ public class OrganicPet extends VirtualPet {
 	public int getSoilRate() {
 		return soilRate;
 	}
+	
+	@Override
 	public void walk() {
-		this.soilRate = 0;
-		
+		this.soilRate = 0;	
 	}
 }
