@@ -34,6 +34,22 @@ public class VirtualPetShelter {
 			return -1;
 		}
 	}
+	public void feedPetMeal(String name) {
+		VirtualPet singlePet = virtualPetsMap.get(name);
+
+		if(singlePet instanceof OrganicPet) {
+			((OrganicPet)singlePet).feedMeal();
+		}
+	}
+	public void feedAllSnackMethod() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			
+			if(virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true) {
+				((OrganicPet)virtualPet).feedSnack();				
+			}
+			
+		}
+	}
 	public int getPetThirst(String name) {
 		VirtualPet singlePet = virtualPetsMap.get(name);
 		if(singlePet instanceof OrganicPet) {
@@ -78,69 +94,27 @@ public class VirtualPetShelter {
 		return virtualPetsMap.size();
 	}
 	
-//	public Map<String, VirtualPet> showAll() {
-//		Collection<VirtualPet> organicPets = new ArrayList<>();
-//		for(VirtualPet virtualPet : virtualPetsMap.values()) {
-//			if(virtualPet instanceof OrganicPet) {
-//				organicPets.add(virtualPet);
-//			}
-//		}
-//		return organicPets;
-//	}
-//	
-//
-//	public ArrayList<String> getAllNames() {
-//		ArrayList<String> allNames = new ArrayList<String>();
-//		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-//			allNames.add(virtualPet.getName());
-//		}
-//		return allNames;
-//	}
-//	
-//	public ArrayList<String> getPetAttributes(String name) {
-//		ArrayList<String> petAttributes = new ArrayList<String>();
-//		petAttributes.add(virtualPetsMap.get(name).getName());
-//		petAttributes.add(virtualPetsMap.get(name).getSpecies());
-//		petAttributes.add(Integer.toString(virtualPetsMap.get(name).getHunger()));
-//		petAttributes.add(String.valueOf(virtualPetsMap.get(name).getBoredom()));
-//		petAttributes.add(Integer.toString(virtualPetsMap.get(name).getThirst()));
-//		petAttributes.add(Integer.toString(virtualPetsMap.get(name).getBoredomCounter()));
-//		petAttributes.add(String.valueOf(virtualPetsMap.get(name).getOwnership()));
-//		return petAttributes;
-//	}
-//
-//	public ArrayList<ArrayList<String>> getAllAttributes() {
-//		ArrayList<ArrayList<String>> allAttributes = new ArrayList<ArrayList<String>>();
-//		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-//			allAttributes.add(getPetAttributes(virtualPet.getName()));
-//		}
-//		return allAttributes;
-//	}
-//	
-//	public OrganicPet getSinglePet(String name) {
-//		return virtualPetsMap.get(name);
-//	}
-//	
-//	public void sendPetToShelter(String name) {
-//		virtualPetsMap.get(name).sendPetToShelter();
-//	}
-//	
-//	public void feedPetMeal(String name) {
-//		virtualPetsMap.get(name).feedMeal();
-//	}
-//	public void showAllPetsAndTheirStats() {
-//		for (OrganicPet virtualPet : virtualPetsMap.values()) {
-//			System.out.println(virtualPet.getName() + " " + virtualPet.getSpecies() + " " + virtualPet.getBoredom() + " " +virtualPet.getHunger() + " " + virtualPet.getThirst() + " " + virtualPet.getOwnership() + " ");
-//		}
-//		
-//	}
-//	public void feedAllSnackMethod() {
-//		for (OrganicPet virtualPet : virtualPetsMap.values()) {
-//			if(virtualPet.getOwnership() == true) {
-//				virtualPet.feedSnack();				
-//			}
-//			
-//		}
-//	}
+	public ArrayList<String> getAllNames() {
+		ArrayList<String> allNames = new ArrayList<String>();
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			allNames.add(virtualPet.getName());
+		}
+		return allNames;
+	}
 	
-}
+	
+
+	
+	
+	public VirtualPet getSinglePet(String name) {
+		return virtualPetsMap.get(name);
+	}
+	
+	public void sendPetToShelter(String name) {
+		virtualPetsMap.get(name).sendPetToShelter();
+	}
+	
+	
+	}
+	
+	
