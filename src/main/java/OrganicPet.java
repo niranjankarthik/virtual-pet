@@ -54,6 +54,9 @@ public class OrganicPet extends VirtualPet {
 	public void giveDrink() {
 		this.thirst = 0;
 	}
+	public void putSoilRateToZero() {
+		this.soilRate = 0;
+	}
 
 	@Override
 	public void tick() {	
@@ -89,8 +92,4 @@ public class OrganicPet extends VirtualPet {
 		return soilRate;
 	}
 	
-	@Override
-	public void walk() {
-		this.soilRate = 0;	
-	}
 }

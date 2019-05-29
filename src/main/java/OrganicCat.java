@@ -5,4 +5,9 @@ public class OrganicCat extends OrganicPet {
 		super(name, "Organic Cat");
 	}
 
+	public int getHowMuchPoopInLitterBox() {
+		 return getSoilRate();
+	}
+	
+
 }

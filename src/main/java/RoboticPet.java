@@ -1,5 +1,5 @@
 
-public class RoboticPet extends VirtualPet{
+public class RoboticPet extends VirtualPet implements Walkable{
 
 	private int oilValue;
 	private int maintenanceHealth;
@@ -39,6 +39,7 @@ public class RoboticPet extends VirtualPet{
 	@Override
 	public void walk() {
 		maintenanceHealth -= 10;
+		oilValue -= 10;
 	}
 
 	public int getMaintenanceHealth() {

@@ -103,7 +103,7 @@ public class RoboticPetTest {
 	}
 	
 	@Test
-	public void walkingPet6xShouldNotDecreaseMaintenanceHealthBelowZero() {
+	public void walkingPet6xShouldNotDecreaseMaintenanceHealthAndOilValueBelowZero() {
 		RoboticPet underTest = new RoboticPet(null, null, 0);
 		underTest.walk();
 		underTest.walk();
@@ -111,7 +111,9 @@ public class RoboticPetTest {
 		underTest.walk();
 		underTest.walk();
 		underTest.walk();
+		int finalOilValue = underTest.getOilValue();
 		int finalMaintenanceHealth = underTest.getMaintenanceHealth();
 		assertEquals(0, finalMaintenanceHealth);
+		assertEquals(0, finalOilValue);
 	}
 }
