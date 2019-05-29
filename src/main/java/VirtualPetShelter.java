@@ -34,6 +34,22 @@ public class VirtualPetShelter {
 			return -1;
 		}
 	}
+	public int getPetOilValue(String name) {
+		VirtualPet singlePet = virtualPetsMap.get(name);
+		if(singlePet instanceof RoboticPet) {
+			return ((RoboticPet) singlePet).getOilValue();
+		} else {
+			return -1;
+		}
+	}
+	public int getPetMaintenanceHealth(String name) {
+		VirtualPet singlePet = virtualPetsMap.get(name);
+		if(singlePet instanceof RoboticPet) {
+			return ((RoboticPet) singlePet).getMaintenanceHealth();
+		} else {
+			return -1;
+		}
+	}
 	public void feedPetMeal(String name) {
 		VirtualPet singlePet = virtualPetsMap.get(name);
 
