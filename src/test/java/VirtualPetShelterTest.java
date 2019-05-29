@@ -140,4 +140,18 @@ public class VirtualPetShelterTest {
 		OrganicPet resultPet = underTest.getSinglePet("Fred");
 		assertThat(resultPet.getHunger(), is(0));
 	}
+	
+	@Test
+	public void organicPetShouldBeAbleToGetDefaultHunger() {
+		underTest.addOrganicPetToShelter(new OrganicPet("Hungry", "Dog"));
+		int resultHunger = underTest.getPetHunger("Hungry");
+		assertThat(resultHunger, is(10));
+	}
+	
+	@Test
+	public void roboticPetShouldBeAbleToGetHungerNegOne() {
+		underTest.addRoboticPetToShelter(new RoboticPet("Robo", "Dog"));
+		int resultHunger = underTest.getPetHunger("Robo");
+		assertThat(resultHunger, is(-1));
+	}
 }
