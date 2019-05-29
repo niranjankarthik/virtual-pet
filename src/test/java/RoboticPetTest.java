@@ -62,7 +62,7 @@ public class RoboticPetTest {
 	@Test
 	public void shouldHaveInitialMaintenanceValueOf50() {
 		RoboticPet underTest = new RoboticPet(null, null, 0);
-		int testMaintenanceValue = underTest.getMaintenanceValue();
+		int testMaintenanceValue = underTest.getMaintenanceHealth();
 		assertEquals(50, testMaintenanceValue);
 	}
 	
@@ -70,16 +70,16 @@ public class RoboticPetTest {
 	public void doMaintenanceShouldIncreaseMaintenanceValueTo100() {
 		RoboticPet underTest = new RoboticPet(null, null, 0);
 		underTest.doMaintenance();
-		int testMaintenanceValue = underTest.getMaintenanceValue();
+		int testMaintenanceValue = underTest.getMaintenanceHealth();
 		assertEquals(100, testMaintenanceValue);
 	}
 	
 	@Test
 	public void tickShouldDecreaseMaintenanceByThree() {
 		RoboticPet underTest = new RoboticPet(null, null, 0);
-		int initialMaintenanceValue = underTest.getMaintenanceValue();
+		int initialMaintenanceValue = underTest.getMaintenanceHealth();
 		underTest.tick();
-		int finalMaintenanceValue = underTest.getMaintenanceValue();
+		int finalMaintenanceValue = underTest.getMaintenanceHealth();
 		assertEquals(initialMaintenanceValue - 3, finalMaintenanceValue);
 	}
 	
@@ -89,7 +89,29 @@ public class RoboticPetTest {
 		for(int i = 0; i < 17; i++) {
 			underTest.tick();
 		}
-		int finalMaintenanceValue = underTest.getMaintenanceValue();
-		assertEquals(0, finalMaintenanceValue);
+		int finalMaintenanceHealth = underTest.getMaintenanceHealth();
+		assertEquals(0, finalMaintenanceHealth);
+	}
+	
+	@Test
+	public void walkingPetShouldDecreaseMaintenanceHealthBy10() {
+		RoboticPet underTest = new RoboticPet(null, null, 0);
+		int initialMaintenanceHealth = underTest.getMaintenanceHealth();
+		underTest.walk();
+		int finalMaintenanceHealth = underTest.getMaintenanceHealth();
+		assertEquals(initialMaintenanceHealth - 10, finalMaintenanceHealth);
+	}
+	
+	@Test
+	public void walkingPet6xShouldNotDecreaseMaintenanceHealthBelowZero() {
+		RoboticPet underTest = new RoboticPet(null, null, 0);
+		underTest.walk();
+		underTest.walk();
+		underTest.walk();
+		underTest.walk();
+		underTest.walk();
+		underTest.walk();
+		int finalMaintenanceHealth = underTest.getMaintenanceHealth();
+		assertEquals(0, finalMaintenanceHealth);
 	}
 }
