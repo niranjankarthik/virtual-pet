@@ -11,7 +11,7 @@ public class VirtualPetApp {
 		System.out.println("Please enter a Pet Species");
 		String species = input.nextLine();
 		OrganicPet virtualPet1 = new OrganicPet(name, species);
-		myShelter.addPetToShelter(virtualPet1);
+		myShelter.addOrganicPetToShelter(virtualPet1);
 		System.out.println("Your Pet is " + name + " the " + species);
 	
 		String userChoice = "";
@@ -47,7 +47,7 @@ public class VirtualPetApp {
 				System.out.println("Please enter a Pet Species");
 				species = input.nextLine();
 				virtualPet1 = new OrganicPet(name, species);
-				myShelter.addPetToShelter(virtualPet1);
+				myShelter.addOrganicPetToShelter(virtualPet1);
 			}
 			if (userChoice.equals("2")) {
 				System.out.println("Feed all pets or single?");
