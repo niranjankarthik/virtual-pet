@@ -115,7 +115,7 @@ public class VirtualPetShelter {
 		return allNames;
 	}
 
-	public VirtualPet getVirtualPet(String name) {
+	public VirtualPet getPet(String name) {
 		return virtualPetsMap.get(name);
 	}
 
@@ -149,7 +149,7 @@ public class VirtualPetShelter {
 		}
 	}
 	
-	public void playWithvirtualPet(String name) {
+	public void playWithPet(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
 		if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true) {
 			((OrganicPet) virtualPet).play();
@@ -158,11 +158,11 @@ public class VirtualPetShelter {
 
 	public void playWithAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-				playWithvirtualPet(virtualPet.getName());
+				playWithPet(virtualPet.getName());
 		}
 	}
 
-	public void oilvirtualPet(String name) {
+	public void oilPet(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
 		if (virtualPet instanceof RoboticPet && virtualPet.getOwnership() == true) {
 			((RoboticPet) virtualPet).addOil();
@@ -171,11 +171,11 @@ public class VirtualPetShelter {
 
 	public void oilAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()){
-				oilvirtualPet(virtualPet.getName());				
+				oilPet(virtualPet.getName());				
 		}
 	}
 	
-	public void maintainvirtualPet(String name) {
+	public void maintainPet(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
 		if (virtualPet instanceof RoboticPet && virtualPet.getOwnership() == true) {
 			((RoboticPet) virtualPet).doMaintenance();
@@ -184,7 +184,7 @@ public class VirtualPetShelter {
 
 	public void maintainAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-				maintainvirtualPet(virtualPet.getName());
+				maintainPet(virtualPet.getName());
 		}
 	}
 }
