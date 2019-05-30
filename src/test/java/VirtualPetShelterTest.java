@@ -270,4 +270,100 @@ public class VirtualPetShelterTest {
 		int rFredFinalHunger = underTest.getPetHunger("R Fred");
 		assertEquals(rFredInitialHunger, rFredFinalHunger);
 	}
+	
+	@Test
+	public void shouldBeAbleToPlayWithSallyAndSeeOrganicCatSallyAndSeeHerBoredomCounterGoDownByThree() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int sallyInitialBoredomCounter = underTest.getPetBoredomCounter("Sally");
+		underTest.playWithPet("Sally");
+		int sallyFinalBoredomCounter = underTest.getPetBoredomCounter("Sally");
+		assertEquals(sallyInitialBoredomCounter - 3, sallyFinalBoredomCounter);
+	}
+	
+	@Test
+	public void shouldBeAbleToPlayWithSallyAndSeeNothingHappenToFredBoredomCounter() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int fredInitialBoredomCounter = underTest.getPetBoredomCounter("Fred");
+		underTest.playWithPet("Sally");
+		int fredFinalBoredomCounter = underTest.getPetBoredomCounter("Fred");
+		assertEquals(fredInitialBoredomCounter, fredFinalBoredomCounter);
+	}
+	
+	@Test
+	public void shouldBeAbleToPlayWithRSallyAndSeeNothingHappenToRSallyBoredomCounter() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rSallyInitialBoredomCounter = underTest.getPetBoredomCounter("R Sally");
+		underTest.playWithPet("Sally");
+		int rSallyFinalBoredomCounter = underTest.getPetBoredomCounter("R Sally");
+		assertEquals(rSallyInitialBoredomCounter, rSallyFinalBoredomCounter);
+	}
+	
+	@Test
+	public void shouldBeAbleToPlayWithRSallyAndSeeNothingHappenToRFredBoredomCounter() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rFredInitialBoredomCounter = underTest.getPetBoredomCounter("R Fred");
+		underTest.playWithPet("Sally");
+		int rFredFinalBoredomCounter = underTest.getPetBoredomCounter("R Fred");
+		assertEquals(rFredInitialBoredomCounter, rFredFinalBoredomCounter);
+	}
+	
+	@Test
+	public void shouldBeAbleToPlayWithAllPetsAndSeeOrganicCatSallyBoredomCounterGoDownByThree() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int sallyInitialBoredomCounter = underTest.getPetBoredomCounter("Sally");
+		underTest.playWithAll();
+		int sallyFinalBoredomCounter = underTest.getPetBoredomCounter("Sally");
+		assertEquals(sallyInitialBoredomCounter - 3, sallyFinalBoredomCounter);
+	}
+	
+	@Test
+	public void shouldBeAbleToPlayWithAllPetsAndSeeOrganicDogFredBoredomCounterGoDownByThree() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int fredInitialBoredomCounter = underTest.getPetBoredomCounter("Fred");
+		underTest.playWithAll();
+		int fredFinalBoredomCounter = underTest.getPetBoredomCounter("Fred");
+		assertEquals(fredInitialBoredomCounter - 3, fredFinalBoredomCounter);
+	}
+	
+	@Test
+	public void shouldBeAbleToPlayWithAllPetsAndSeeNothingHappenToRoboticCatRSallyBoredom() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rSallyInitialBoredomCounter = underTest.getPetBoredomCounter("R Sally");
+		underTest.playWithAll();
+		int rSallyFinalBoredomCounter = underTest.getPetBoredomCounter("R Sally");
+		assertEquals(rSallyInitialBoredomCounter, rSallyFinalBoredomCounter);
+	}
+	
+	@Test
+	public void shouldBeAbleToPlayWithAllPetsAndSeeNothingHappenToRoboticDogRFredBoredom() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rFredInitialBoredomCounter = underTest.getPetBoredomCounter("R Fred");
+		underTest.playWithAll();
+		int rFredFinalBoredomCounter = underTest.getPetBoredomCounter("R Fred");
+		assertEquals(rFredInitialBoredomCounter, rFredFinalBoredomCounter);
+	}
 }
