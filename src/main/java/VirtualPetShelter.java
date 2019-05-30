@@ -243,14 +243,13 @@ public class VirtualPetShelter {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
 		if (virtualPet.getOwnership() == true) {
 			if (virtualPet instanceof RoboticPet) {
-				if (virtualPet instanceof OrganicDog) {
+				((RoboticPet)virtualPet).walk();
+			} else if (virtualPet instanceof OrganicDog) {
 					((OrganicDog)virtualPet).walk();
-				} else {
-					((RoboticPet)virtualPet).walk();
-				}
 			}
 		}
 	}
+
 	
 	public void walkAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
