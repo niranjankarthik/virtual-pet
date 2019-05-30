@@ -2,13 +2,13 @@ import java.util.ArrayList;
 
 public class ConsoleOutput {
 
-	public static void main(String[] args) {
-		VirtualPetShelter myShelter = new VirtualPetShelter();
-		myShelter.addOrganicPetToShelter(new OrganicPet("Fred", "Cat"));
-		myShelter.addOrganicPetToShelter(new OrganicPet("Lawrence", "Dog"));
-		myShelter.addOrganicPetToShelter(new OrganicPet("Matt", "Dog"));
-		printCommonAttributesOfAllPets(myShelter);
-	}
+//	public static void main(String[] args) {
+//		VirtualPetShelter myShelter = new VirtualPetShelter();
+//		myShelter.addOrganicPetToShelter(new OrganicPet("Fred", "Cat"));
+//		myShelter.addOrganicPetToShelter(new OrganicPet("Lawrence", "Dog"));
+//		myShelter.addOrganicPetToShelter(new OrganicPet("Matt", "Dog"));
+//		printCommonAttributesOfAllPets(myShelter);
+//	}
 	
 	private static String makeNCharacterStringWithDashes(String inputString, int length) {
 		if(inputString.equals("-1")) {

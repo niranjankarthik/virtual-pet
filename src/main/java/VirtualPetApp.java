@@ -40,7 +40,7 @@ public class VirtualPetApp {
 				System.out.println("Feed all pets (1)\nor single (2)?");
 				userChoice = input.nextLine();
 				if (userChoice.equals("1")) {
-					myShelter.feedAllSnackMethod();
+					myShelter.feedAllSnack();
 					System.out.println("All pets were given a meal");
 				}
 				if (userChoice.equals("2")) {

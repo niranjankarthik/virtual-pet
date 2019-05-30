@@ -125,40 +125,35 @@ public class VirtualPetShelter {
 
 	public void feedPetMeal(String name) {
 		VirtualPet singlePet = virtualPetsMap.get(name);
-
 		if (singlePet instanceof OrganicPet) {
 			((OrganicPet) singlePet).feedMeal();
+		}
+	}
+	
+	public void feedAllMeal() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			if (virtualPet.getOwnership() == true) {
+				feedPetMeal(virtualPet.getName());
+			}
 		}
 	}
 
 	public void feedPetSnack(String name) {
 		VirtualPet singlePet = virtualPetsMap.get(name);
-
 		if (singlePet instanceof OrganicPet) {
 			((OrganicPet) singlePet).feedSnack();
 		}
 	}
 
-	public void feedAllSnackMethod() {
+	public void feedAllSnack() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-
-			if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true) {
+			if (virtualPet.getOwnership() == true) {
 				feedPetSnack(virtualPet.getName());
 			}
 		}
 	}
-
-	public void feedAllMealMethod() {
-		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-
-			if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true) {
-				feedPetMeal(virtualPet.getName());
-			}
-
-		}
-	}
-
-	public void playWithSinglePetkMethod(String name) {
+	
+	public void playWithSinglePet(String name) {
 		VirtualPet singlePet = virtualPetsMap.get(name);
 
 		if (singlePet instanceof OrganicPet) {
@@ -166,44 +161,41 @@ public class VirtualPetShelter {
 		}
 	}
 
-	public void playWithAllMethod() {
+	public void playWithAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-			if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true) {
-				playWithSinglePetkMethod(virtualPet.getName());
+			if (virtualPet.getOwnership() == true) {
+				playWithSinglePet(virtualPet.getName());
 			}
 		}
-
 	}
 
-	public void oilSinglePetkMethod(String name) {
+	public void oilSinglePet(String name) {
 		VirtualPet singlePet = virtualPetsMap.get(name);
-
 		if (singlePet instanceof RoboticPet) {
 			((RoboticPet) singlePet).addOil();
 		}
 	}
 
-	public void OilAllMethod() {
-				for (VirtualPet virtualPet : virtualPetsMap.values()){
-					if(virtualPet instanceof RoboticPet && virtualPet.getOwnership() == true) {
-						oilSinglePetkMethod(virtualPet.getName());				
-					}
-				}
+	public void oilAll() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()){
+			if(virtualPet.getOwnership() == true) {
+				oilSinglePet(virtualPet.getName());				
+			}
+		}
 	}
-	public void MaintainSinglePetkMethod(String name) {
+	
+	public void MaintainSinglePet(String name) {
 		VirtualPet singlePet = virtualPetsMap.get(name);
-
 		if (singlePet instanceof RoboticPet) {
 			((RoboticPet) singlePet).doMaintenance();
 		}
 	}
 
-	public void MaintainAllMethod() {
+	public void maintainAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-			if (virtualPet instanceof RoboticPet && virtualPet.getOwnership() == true) {
-				MaintainSinglePetkMethod(virtualPet.getName());
+			if (virtualPet.getOwnership() == true) {
+				MaintainSinglePet(virtualPet.getName());
 			}
 		}
 	}
-
 }
