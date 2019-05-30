@@ -562,6 +562,27 @@ public class VirtualPetShelterTest {
 		int rFredFinalMaintenanceHealth = underTest.getPetMaintenanceHealth("R Fred");
 		assertEquals(100, rFredFinalMaintenanceHealth);
 	}
+	
+	@Test
+	public void shouldAbleToWaterPet() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.waterPet("Sally");
+		int sallyThirst = underTest.getPetThirst("Sally");
+		assertEquals(0, sallyThirst);
+	}
+	
+	@Test
+	public void shouldBeAbleToWaterAllPets() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.waterAllPets();
+		int sallyThirst = underTest.getPetThirst("Sally");
+		assertEquals(0, sallyThirst);
+		int fredThirst = underTest.getPetThirst("Fred");
+		assertEquals(0, fredThirst);
+		
+	}
+
 	@Test
 	public void shouldBeAbleToCleanCatLitterBoxAndNothingHappenToOrganicDogA() {
 		underTest.addOrganicPetToShelter(new OrganicDog("A"));
@@ -595,6 +616,7 @@ public class VirtualPetShelterTest {
 		int aFinalCatLitterBox = underTest.getPetSoilRate("D");
 		assertEquals(aInitialCatLitterBox, aFinalCatLitterBox);
 	}
+  
 	@Test
 	public void shouldBeAbleToCleanCatLitterBoxAndMakeOrganicCatBDecreaseSoilRateToZero() {
 		underTest.addOrganicPetToShelter(new OrganicDog("A"));
@@ -627,6 +649,7 @@ public class VirtualPetShelterTest {
 		int aFinalCatLitterBox = underTest.getPetSoilRate("C");
 		assertEquals(aInitialCatLitterBox, aFinalCatLitterBox);
 	}
+  
 	@Test
 	public void shouldBeAbleToCleanAllLitterBoxAndNothingHappenToRoboticCatD() {
 		underTest.addOrganicPetToShelter(new OrganicDog("A"));
@@ -638,6 +661,7 @@ public class VirtualPetShelterTest {
 		int aFinalCatLitterBox = underTest.getPetSoilRate("D");
 		assertEquals(aInitialCatLitterBox, aFinalCatLitterBox);
 	}
+  
 	@Test
 	public void shouldBeAbleToCleanAllLitterBoxAndMakeOrganicCatBDecreaseSoilRateToZero() {
 		underTest.addOrganicPetToShelter(new OrganicDog("A"));
