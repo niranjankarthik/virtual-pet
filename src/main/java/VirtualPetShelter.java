@@ -187,4 +187,14 @@ public class VirtualPetShelter {
 				maintainPet(virtualPet.getName());
 		}
 	}
+	public void cleanCatLitterBox(String name) {
+		VirtualPet virtualPet = virtualPetsMap.get(name);
+		if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true){
+			((OrganicCat) virtualPet).cleanLitterBox();
+		}
+	}
+	public void cleanAllLitterBox() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			cleanCatLitterBox(virtualPet.getName());		}
+	}
 }
