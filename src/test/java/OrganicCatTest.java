@@ -7,7 +7,6 @@ public class OrganicCatTest {
 	@Test
 	public void shouldHaveOrganicCat() {
 		OrganicCat underTest = new OrganicCat(null);
-		
 	}
 	
 	@Test
@@ -16,12 +15,14 @@ public class OrganicCatTest {
 		String nameSpecies = underTest.getSpecies();
 		assertEquals("Organic Cat", nameSpecies);
 	}
+	
 	@Test
 	public void shouldHaveAttributeHowMuchPoopInLitterBoxDefaultValue5() {
 		OrganicCat underTest = new OrganicCat(null);
 		int poopInCage = underTest.getHowMuchPoopInLitterBox();
 		assertEquals(5, poopInCage);
 	}
+	
 	@Test
 	public void shouldHaveAttributeHowMuchPoopInLitterBoxOf6AfterTick() {
 		OrganicCat underTest = new OrganicCat(null);
