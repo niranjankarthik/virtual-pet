@@ -23,24 +23,46 @@ public class VirtualPetApp {
 				continue;
 			}
 			if (userChoice.equals("2")) {
-				System.out.println("Feed all pets (1)\nor single (2)?");
+				System.out.println("What would you like to do?");
+				System.out.println("(1) Feed your Pets");
+				System.out.println("(2) Water your Pets");
+				System.out.println("(3) Play with your Pets");
+				System.out.println("(4) Oil your Pets");
+				System.out.println("(5) Maintain your Pets");
+
 				userChoice = input.nextLine();
 				if (userChoice.equals("1")) {
-					myShelter.feedAllSnack();
-					System.out.println("All pets were given a meal");
-				}
-				if (userChoice.equals("2")) {
-					System.out.println("Enter Name of Pet you want to feed a snack");
-					name = input.nextLine();
-					myShelter.feedPetSnack(name);
-					System.out.println(name + " was given a snack");
-				}
+					System.out.println("(1) Feed all pets a snack \n(2) Feed a single pet a snack \n(3) Feed all pets a meal \n(4) Feed a single pet a meal");
+					System.out.println("Any other input returns you to main menu");
+					userChoice = input.nextLine();
+					if (userChoice.equals("1")) {
+						myShelter.feedAllSnack();
+						System.out.println("All pets were given a snack");
+					}
+					if (userChoice.equals("2")) {
+						System.out.println("Enter Name of Pet you want to feed a snack");
+						name = input.nextLine();
+						myShelter.feedPetSnack(name);
+						System.out.println(name + " was given a snack");
+					}
+					if (userChoice.equals("3")) {
+						myShelter.feedAllMeal();
+						System.out.println("All pets were given a meal");
+					}
+					if (userChoice.equals("4")) {
+						System.out.println("Enter Name of Pet you want to feed a snack");
+						name = input.nextLine();
+						myShelter.feedPetMeal(name);
+						System.out.println(name + " was given a meal");
+					}
+				}continue;
+
 			}
 			if (userChoice.equals("3")) {
 				System.out.println("Press 1 to show single pet stats");
 				System.out.println("Press 2 to show all pet stats");
 				System.out.println("Press 3 to show Owned pet stats");
-				
+
 				System.out.println("Any other input returns you to main menu");
 				userChoice = input.nextLine();
 				if (userChoice.equals("1")) {
@@ -51,18 +73,40 @@ public class VirtualPetApp {
 					ConsoleOutput.printAllPetAttributes(myShelter);
 				} else if (userChoice.equals("3")) {
 					ConsoleOutput.printAllOwnedPetAttributes(myShelter);
-				} 
-				
+				}
+
 				else {
 					continue;
 				}
 				continue;
 			}
-			if (userChoice.equals("4"))
+			if (userChoice.equals("4")) {
 				System.out.println("Which Pet do you want to relinquish ownership of?");
-			name = input.nextLine();
-			myShelter.sendPetToShelter(name);
+				name = input.nextLine();
+				myShelter.sendPetToShelter(name);
+			}
+			if (userChoice.equals("5")) {
+				System.out.println("How much time should pass");
+				System.out.println("(1) a day");
+				System.out.println("(2) a week");
+				System.out.println("(3) go on vacation");
+				System.out.println("Any other input returns you to main menu");
+				userChoice = input.nextLine();
+				if (userChoice.equals("1")) {
+					myShelter.tickShelter();
 
+				} else if (userChoice.equals("2")) {
+					for (int i = 0; i < 7; i++) {
+						myShelter.tickShelter();
+					}
+
+				} else if (userChoice.equals("3")) {
+					for (int i = 0; i < 30; i++) {
+						myShelter.tickShelter();
+					}
+				}
+
+			}
 		} while (!userChoice.equals("9"));
 
 		System.out.println("Good Bye");
@@ -95,14 +139,15 @@ public class VirtualPetApp {
 			myShelter.addRoboticPetToShelter(new RoboticCat(name));
 			System.out.println("Your pet is " + name + " the Robotic Cat");
 		}
-		
-		}
+
+	}
 
 	private static void printMainMenu() {
 		System.out.println("Press 1 Make another Pet");
 		System.out.println("Press 2 Feed, Give Drink, Play with ,Walk, Clean Litter, Oil, give Maintence");
 		System.out.println("Press 3 Show Pet Stats");
 		System.out.println("Press 4 Relinquish Ownership");
+		System.out.println("Press 5 Let time pass");
 		System.out.println("Press 9 to exit");
 	}
 }
