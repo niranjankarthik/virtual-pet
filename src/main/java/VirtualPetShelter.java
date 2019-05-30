@@ -122,6 +122,18 @@ public class VirtualPetShelter {
 	public void sendPetToShelter(String name) {
 		virtualPetsMap.get(name).sendPetToShelter();
 	}
+	public void tickPet(String name) {
+		VirtualPet virtualPet = virtualPetsMap.get(name);
+		if (virtualPet.getOwnership() == true) {
+			((VirtualPet) virtualPet).tick();
+		}
+	}
+	
+	public void tickShelter() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+				tickPet(virtualPet.getName());
+		}
+	}
 
 	public void feedPetMeal(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
