@@ -143,10 +143,10 @@ public class VirtualPetShelter {
 			((VirtualPet) virtualPet).tick();
 		}
 	}
-	
+
 	public void tickShelter() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-				tickPet(virtualPet.getName());
+			tickPet(virtualPet.getName());
 		}
 	}
 
@@ -156,10 +156,10 @@ public class VirtualPetShelter {
 			((OrganicPet) virtualPet).feedMeal();
 		}
 	}
-	
+
 	public void feedAllMeal() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-				feedPetMeal(virtualPet.getName());
+			feedPetMeal(virtualPet.getName());
 		}
 	}
 
@@ -172,10 +172,10 @@ public class VirtualPetShelter {
 
 	public void feedAllSnack() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-				feedPetSnack(virtualPet.getName());
+			feedPetSnack(virtualPet.getName());
 		}
 	}
-	
+
 	public void playWithPet(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
 		if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true) {
@@ -185,7 +185,7 @@ public class VirtualPetShelter {
 
 	public void playWithAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-				playWithPet(virtualPet.getName());
+			playWithPet(virtualPet.getName());
 		}
 	}
 
@@ -198,10 +198,10 @@ public class VirtualPetShelter {
 
 	public void oilAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()){
-				oilPet(virtualPet.getName());				
+			oilPet(virtualPet.getName());				
 		}
 	}
-	
+
 	public void maintainPet(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
 		if (virtualPet instanceof RoboticPet && virtualPet.getOwnership() == true) {
@@ -211,7 +211,7 @@ public class VirtualPetShelter {
 
 	public void maintainAll() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-				maintainPet(virtualPet.getName());
+			maintainPet(virtualPet.getName());
 		}
 	}
 	public void cleanCatLitterBox(String name) {
@@ -222,6 +222,26 @@ public class VirtualPetShelter {
 	}
 	public void cleanAllLitterBox() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
-			cleanCatLitterBox(virtualPet.getName());		}
+			cleanCatLitterBox(virtualPet.getName());
+		}
+	}
+	
+	public void walkPet(String name) {
+		VirtualPet virtualPet = virtualPetsMap.get(name);
+		if (virtualPet.getOwnership() == true) {
+			if (virtualPet instanceof RoboticPet) {
+				if (virtualPet instanceof OrganicDog) {
+					((OrganicDog)virtualPet).walk();
+				} else {
+					((RoboticPet)virtualPet).walk();
+				}
+			}
+		}
+	}
+	
+	public void walkAll() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			walkPet(virtualPet.getName());
+		}
 	}
 }
