@@ -55,7 +55,7 @@ public class OrganicPet extends VirtualPet {
 		this.thirst = 0;
 	}
 	public void putSoilRateToZero() {
-		this.soilRate = 0;
+		this.soilRate = 0;	
 	}
 
 	@Override
