@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class VirtualPetApp {
 	public static final String ANSI_GREEN = "\u001B[32m";
+
 	public static void main(String[] args) {
 		VirtualPetShelter myShelter = new VirtualPetShelter();
 		String name;
@@ -33,7 +34,8 @@ public class VirtualPetApp {
 
 				userChoice = input.nextLine();
 				if (userChoice.equals("1")) {
-					System.out.println("(1) Feed all pets a snack \n(2) Feed a single pet a snack \n(3) Feed all pets a meal \n(4) Feed a single pet a meal");
+					System.out.println(
+							"(1) Feed all pets a snack \n(2) Feed a single pet a snack \n(3) Feed all pets a meal \n(4) Feed a single pet a meal");
 					System.out.println("Any other input returns you to main menu");
 					userChoice = input.nextLine();
 					if (userChoice.equals("1")) {
@@ -58,96 +60,96 @@ public class VirtualPetApp {
 						System.out.println(name + " was given a meal");
 					}
 				}
+				if (userChoice.equals("2")) {
+					System.out.println("(1) Water all pets \n(2) Water a single pet");
+					System.out.println("Any other input returns you to main menu");
+					userChoice = input.nextLine();
+					if (userChoice.equals("1")) {
+						myShelter.waterAllPets();
+						System.out.println("All pets were watered");
+					}
 					if (userChoice.equals("2")) {
-						System.out.println("(1) Water all pets \n(2) Water a single pet");
-						System.out.println("Any other input returns you to main menu");
-						userChoice = input.nextLine();
-						if (userChoice.equals("1")) {
-							myShelter.waterAllPets();
-							System.out.println("All pets were watered");
-						}
-						if (userChoice.equals("2")) {
-							System.out.println("Enter Name of Pet you want to give water");
-							name = input.nextLine();
-							myShelter.waterPet(name);
-							System.out.println(name + " was given water");
-						}
-						
+						System.out.println("Enter Name of Pet you want to give water");
+						name = input.nextLine();
+						myShelter.waterPet(name);
+						System.out.println(name + " was given water");
 					}
-					if (userChoice.equals("3")) {
-						System.out.println("(1) Play with all pets \n(2) Play with a single pet");
-						System.out.println("Any other input returns you to main menu");
-						userChoice = input.nextLine();
-						if (userChoice.equals("1")) {
-							myShelter.playWithAll();
-							System.out.println("All pets were played with");
-						}
-						if (userChoice.equals("2")) {
-							System.out.println("Enter Name of Pet you want to play with");
-							name = input.nextLine();
-							myShelter.playWithPet(name);
-							System.out.println(name + " was played with");
-						}
-						
-					}
-					if (userChoice.equals("4")) {
-						System.out.println("(1) Oil all pets \n(2) Oil a single pet");
-						System.out.println("Any other input returns you to main menu");
-						userChoice = input.nextLine();
-						if (userChoice.equals("1")) {
-							myShelter.playWithAll();
-							System.out.println("All pets were oiled");
-						}
-						if (userChoice.equals("2")) {
-							System.out.println("Enter Name of Pet you want to oil");
-							name = input.nextLine();
-							myShelter.playWithPet(name);
-							if(myShelter.getPetSpecies(name).contains("Organic")) {
-								System.out.println("You pour oil on " + name + " they are covered in oil, they look at you puzzled");
-							}
-							else
-							System.out.println(name + " was given oil");
-						}
-						
-					}
-					if (userChoice.equals("5")) {
-						System.out.println("(1) Maintain all pets \n(2) Maintain a single pet");
-						System.out.println("Any other input returns you to main menu");
-						userChoice = input.nextLine();
-						if (userChoice.equals("1")) {
-							myShelter.playWithAll();
-							System.out.println("All pets were maintained");
-						}
-						if (userChoice.equals("2")) {
-							System.out.println("Enter Name of Pet you want to maintain");
-							name = input.nextLine();
-							myShelter.playWithPet(name);
-							System.out.println(name + " was given maintence");
-						}
-						
-					}
-					if (userChoice.equals("6")) {
-						System.out.println("(1) Walk all pets \n(2) Walk a single pet");
-						System.out.println("Any other input returns you to main menu");
-						userChoice = input.nextLine();
-						if (userChoice.equals("1")) {
-							myShelter.walkAll();
-							System.out.println("All pets were walked");
-						}
-						if (userChoice.equals("2")) {
-							System.out.println("Enter Name of Pet you want to walk");
-							name = input.nextLine();
-							myShelter.walkPet(name);
-							if(myShelter.getPetSpecies(name).equals("Organic Cat")) {
-								System.out.println(name + " sracthes you, Organic Cats don't like walks");
-							}
-							else System.out.println(name + " was given a walk");
-						}
-						
-					}continue;
-				}
 
-			
+				}
+				if (userChoice.equals("3")) {
+					System.out.println("(1) Play with all pets \n(2) Play with a single pet");
+					System.out.println("Any other input returns you to main menu");
+					userChoice = input.nextLine();
+					if (userChoice.equals("1")) {
+						myShelter.playWithAll();
+						System.out.println("All pets were played with");
+					}
+					if (userChoice.equals("2")) {
+						System.out.println("Enter Name of Pet you want to play with");
+						name = input.nextLine();
+						myShelter.playWithPet(name);
+						System.out.println(name + " was played with");
+					}
+
+				}
+				if (userChoice.equals("4")) {
+					System.out.println("(1) Oil all pets \n(2) Oil a single pet");
+					System.out.println("Any other input returns you to main menu");
+					userChoice = input.nextLine();
+					if (userChoice.equals("1")) {
+						myShelter.playWithAll();
+						System.out.println("All pets were oiled");
+					}
+					if (userChoice.equals("2")) {
+						System.out.println("Enter Name of Pet you want to oil");
+						name = input.nextLine();
+						myShelter.playWithPet(name);
+						if (myShelter.getPetSpecies(name).contains("Organic")) {
+							System.out.println(
+									"You pour oil on " + name + " they are covered in oil, they look at you puzzled");
+						} else
+							System.out.println(name + " was given oil");
+					}
+
+				}
+				if (userChoice.equals("5")) {
+					System.out.println("(1) Maintain all pets \n(2) Maintain a single pet");
+					System.out.println("Any other input returns you to main menu");
+					userChoice = input.nextLine();
+					if (userChoice.equals("1")) {
+						myShelter.playWithAll();
+						System.out.println("All pets were maintained");
+					}
+					if (userChoice.equals("2")) {
+						System.out.println("Enter Name of Pet you want to maintain");
+						name = input.nextLine();
+						myShelter.playWithPet(name);
+						System.out.println(name + " was given maintence");
+					}
+
+				}
+				if (userChoice.equals("6")) {
+					System.out.println("(1) Walk all pets \n(2) Walk a single pet");
+					System.out.println("Any other input returns you to main menu");
+					userChoice = input.nextLine();
+					if (userChoice.equals("1")) {
+						myShelter.walkAll();
+						System.out.println("All pets were walked");
+					}
+					if (userChoice.equals("2")) {
+						System.out.println("Enter Name of Pet you want to walk");
+						name = input.nextLine();
+						myShelter.walkPet(name);
+						if (myShelter.getPetSpecies(name).equals("Organic Cat")) {
+							System.out.println(name + " sracthes you, Organic Cats don't like walks");
+						} else
+							System.out.println(name + " was given a walk");
+					}
+
+				}
+				continue;
+			}
+
 			if (userChoice.equals("3")) {
 				System.out.println("Press 1 to show single pet stats");
 				System.out.println("Press 2 to show all pet stats");
@@ -172,8 +174,10 @@ public class VirtualPetApp {
 			}
 			if (userChoice.equals("4")) {
 				System.out.println("Which Pet do you want to relinquish ownership of?");
+				System.out.println("You will never see them again");
 				name = input.nextLine();
 				myShelter.sendPetToShelter(name);
+				System.out.println("You see " + name + " walk off into the distance");
 			}
 			if (userChoice.equals("5")) {
 				System.out.println("How much time should pass");

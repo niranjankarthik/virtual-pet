@@ -9,16 +9,16 @@ public class ConsoleOutput {
 //		myShelter.addOrganicPetToShelter(new OrganicPet("Matt", "Dog"));
 //		printCommonAttributesOfAllPets(myShelter);
 //	}
-	
+
 	private static String makeNCharacterStringWithDashes(String inputString, int length) {
-		if(inputString.equals("-1")) {
+		if (inputString.equals("-1")) {
 			inputString = "";
 		}
-		if(inputString.length() > length) {
+		if (inputString.length() > length) {
 			inputString = inputString.substring(0, length);
 		}
-		while(inputString.length() < length) {
-			if(inputString.length() % 2 == 0) {
+		while (inputString.length() < length) {
+			if (inputString.length() % 2 == 0) {
 				inputString = inputString + "-";
 			} else {
 				inputString = "-" + inputString;
@@ -26,27 +26,39 @@ public class ConsoleOutput {
 		}
 		return inputString;
 	}
+
 	private static String make10CharacterStringWithDashes(String input) {
 		return makeNCharacterStringWithDashes(input, 10);
 	}
+
 	private static String make14CharacterStringWithDashes(String input) {
 		return makeNCharacterStringWithDashes(input, 14);
 	}
+
 	private static void printSinglePetAttributes(VirtualPetShelter virtualPetShelter, String name) {
 		System.out.printf("|%s", make14CharacterStringWithDashes(virtualPetShelter.getPetName(name)));
 		System.out.printf("|%s", make14CharacterStringWithDashes(virtualPetShelter.getPetSpecies(name)));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetHunger(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetBoredom(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetThirst(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetBoredomCounter(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getLitterBoxCapacity(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getHowMuchPoopInCage(name))));		
-		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetOilValue(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetMaintenanceHealth(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetOwnership(name))));
-		System.out.println("|");	
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetHunger(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetBoredom(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetThirst(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetBoredomCounter(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getLitterBoxCapacity(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getHowMuchPoopInCage(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetOilValue(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetMaintenanceHealth(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetOwnership(name))));
+		System.out.println("|");
 	}
-	
+
 	private static void printPetAttributesHeader() {
 		System.out.printf("|%s", make14CharacterStringWithDashes("Name"));
 		System.out.printf("|%s", make14CharacterStringWithDashes("Species"));
@@ -68,27 +80,30 @@ public class ConsoleOutput {
 		}
 		System.out.println("|");
 	}
+
 	public static void printPetAttributes(VirtualPetShelter virtualPetShelter, String name) {
 		printPetAttributesHeader();
 		printSinglePetAttributes(virtualPetShelter, name);
 	}
+
 	public static void printAllPetAttributes(VirtualPetShelter virtualPetShelter) {
 		printPetAttributesHeader();
 		int howManyPets = virtualPetShelter.getHowManyPets();
 		ArrayList<String> allNames = virtualPetShelter.getAllNames();
-			for(int i = 0; i < howManyPets; i++) {
+		for (int i = 0; i < howManyPets; i++) {
 			printSinglePetAttributes(virtualPetShelter, allNames.get(i));
 		}
 	}
+
 	public static void printAllOwnedPetAttributes(VirtualPetShelter virtualPetShelter) {
-	    printPetAttributesHeader();
-	    int howManyPets = virtualPetShelter.getHowManyPets();
-	    ArrayList<String> allNames = virtualPetShelter.getAllNames();
-	         for(int i = 0; i < howManyPets; i++) {
-	           if(virtualPetShelter.getPetOwnership(allNames.get(i))) {
-	        	   printSinglePetAttributes(virtualPetShelter, allNames.get(i));
-	            }    
-	         }
+		printPetAttributesHeader();
+		int howManyPets = virtualPetShelter.getHowManyPets();
+		ArrayList<String> allNames = virtualPetShelter.getAllNames();
+		for (int i = 0; i < howManyPets; i++) {
+			if (virtualPetShelter.getPetOwnership(allNames.get(i))) {
+				printSinglePetAttributes(virtualPetShelter, allNames.get(i));
+			}
+		}
 	}
 
 	private static void printCommonPetAttributesHeader() {
@@ -106,24 +121,30 @@ public class ConsoleOutput {
 		}
 		System.out.println("|");
 	}
+
 	private static void printCommonSinglePetAttributes(VirtualPetShelter virtualPetShelter, String name) {
 		System.out.printf("|%s", make14CharacterStringWithDashes(virtualPetShelter.getPetName(name)));
 		System.out.printf("|%s", make14CharacterStringWithDashes(virtualPetShelter.getPetSpecies(name)));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetBoredom(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetBoredomCounter(name))));
-		System.out.printf("|%s", make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetOwnership(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetBoredom(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetBoredomCounter(name))));
+		System.out.printf("|%s",
+				make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetOwnership(name))));
 		System.out.println("|");
-			
+
 	}
+
 	public static void printCommonAttributesOfSinglePet(VirtualPetShelter virtualPetShelter, String name) {
 		printCommonPetAttributesHeader();
-		printCommonSinglePetAttributes(virtualPetShelter, name);		
+		printCommonSinglePetAttributes(virtualPetShelter, name);
 	}
+
 	public static void printCommonAttributesOfAllPets(VirtualPetShelter virtualPetShelter) {
 		printCommonPetAttributesHeader();
 		int howManyPets = virtualPetShelter.getHowManyPets();
-		
-		for(String name : virtualPetShelter.getAllNames()) {
+
+		for (String name : virtualPetShelter.getAllNames()) {
 			printCommonSinglePetAttributes(virtualPetShelter, name);
 		}
 	}
