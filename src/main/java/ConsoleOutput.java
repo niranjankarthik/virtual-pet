@@ -76,6 +76,17 @@ public class ConsoleOutput {
 			printSinglePetAttributes(virtualPetShelter, allNames.get(i));
 		}
 	}
+	public static void printAllOwnedPetAttributes(VirtualPetShelter virtualPetShelter) {
+	    printPetAttributesHeader();
+	    int howManyPets = virtualPetShelter.getHowManyPets();
+	    ArrayList<String> allNames = virtualPetShelter.getAllNames();
+	         for(int i = 0; i < howManyPets; i++) {
+	           if(virtualPetShelter.getPetOwnership(allNames.get(i))) {
+	        	   printSinglePetAttributes(virtualPetShelter, allNames.get(i));
+	            }    
+	         }
+	}
+
 	private static void printCommonPetAttributesHeader() {
 		System.out.printf("|%s", make14CharacterStringWithDashes("Name"));
 		System.out.printf("|%s", make14CharacterStringWithDashes("Species"));

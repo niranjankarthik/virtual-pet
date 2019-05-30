@@ -17,24 +17,10 @@ public class VirtualPetApp {
 			if (userChoice.equals("9")) {
 				break;
 			}
-			if (userChoice.equals("3")) {
-				System.out.println("Press 1 to show single pet stats");
-				System.out.println("Press 2 to show all pet stats");
-				System.out.println("Any other input returns you to main menu");
-				userChoice = input.nextLine();
-				if (userChoice.equals("1")) {
-					System.out.println("Which pet's stats do you want to see?");
-					userChoice = input.nextLine();
-					ConsoleOutput.printPetAttributes(myShelter, userChoice);
-				} else if (userChoice.equals("2")) {
-					ConsoleOutput.printAllPetAttributes(myShelter);
-				} else {
-					continue;
-				}
-			}
 			if (userChoice.equals("1")) {
 
 				createPet(myShelter, input);
+				continue;
 			}
 			if (userChoice.equals("2")) {
 				System.out.println("Feed all pets (1)\nor single (2)?");
@@ -50,6 +36,32 @@ public class VirtualPetApp {
 					System.out.println(name + " was given a snack");
 				}
 			}
+			if (userChoice.equals("3")) {
+				System.out.println("Press 1 to show single pet stats");
+				System.out.println("Press 2 to show all pet stats");
+				System.out.println("Press 3 to show Owned pet stats");
+				
+				System.out.println("Any other input returns you to main menu");
+				userChoice = input.nextLine();
+				if (userChoice.equals("1")) {
+					System.out.println("Which pet's stats do you want to see?");
+					userChoice = input.nextLine();
+					ConsoleOutput.printPetAttributes(myShelter, userChoice);
+				} else if (userChoice.equals("2")) {
+					ConsoleOutput.printAllPetAttributes(myShelter);
+				} else if (userChoice.equals("3")) {
+					ConsoleOutput.printAllOwnedPetAttributes(myShelter);
+				} 
+				
+				else {
+					continue;
+				}
+				continue;
+			}
+			if (userChoice.equals("4"))
+				System.out.println("Which Pet do you want to relinquish ownership of?");
+			name = input.nextLine();
+			myShelter.sendPetToShelter(name);
 
 		} while (!userChoice.equals("9"));
 
@@ -83,12 +95,14 @@ public class VirtualPetApp {
 			myShelter.addRoboticPetToShelter(new RoboticCat(name));
 			System.out.println("Your pet is " + name + " the Robotic Cat");
 		}
-	}
+		
+		}
 
 	private static void printMainMenu() {
 		System.out.println("Press 1 Make another Pet");
 		System.out.println("Press 2 Feed, Give Drink, Play with ,Walk, Clean Litter, Oil, give Maintence");
 		System.out.println("Press 3 Show Pet Stats");
+		System.out.println("Press 4 Relinquish Ownership");
 		System.out.println("Press 9 to exit");
 	}
 }
