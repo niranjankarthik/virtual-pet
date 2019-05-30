@@ -216,7 +216,7 @@ public class VirtualPetShelter {
 	}
 	public void cleanCatLitterBox(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
-		if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true){
+		if (virtualPet instanceof OrganicCat && virtualPet.getOwnership() == true){
 			((OrganicCat) virtualPet).cleanLitterBox();
 		}
 	}
