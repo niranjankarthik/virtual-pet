@@ -302,7 +302,7 @@ public class VirtualPetShelterTest {
 		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
 		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
 		int rSallyInitialBoredomCounter = underTest.getPetBoredomCounter("R Sally");
-		underTest.playWithPet("Sally");
+		underTest.playWithPet("R Sally");
 		int rSallyFinalBoredomCounter = underTest.getPetBoredomCounter("R Sally");
 		assertEquals(rSallyInitialBoredomCounter, rSallyFinalBoredomCounter);
 	}
@@ -314,7 +314,7 @@ public class VirtualPetShelterTest {
 		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
 		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
 		int rFredInitialBoredomCounter = underTest.getPetBoredomCounter("R Fred");
-		underTest.playWithPet("Sally");
+		underTest.playWithPet("R Sally");
 		int rFredFinalBoredomCounter = underTest.getPetBoredomCounter("R Fred");
 		assertEquals(rFredInitialBoredomCounter, rFredFinalBoredomCounter);
 	}
@@ -366,4 +366,209 @@ public class VirtualPetShelterTest {
 		int rFredFinalBoredomCounter = underTest.getPetBoredomCounter("R Fred");
 		assertEquals(rFredInitialBoredomCounter, rFredFinalBoredomCounter);
 	}
+	
+	@Test
+	public void shouldBeAbleToOilSallyAndSeeNothingHappenToSallyOilValue() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int sallyInitialOilValue = underTest.getPetBoredomCounter("Sally");
+		underTest.oilPet("Sally");
+		int sallyFinalOilValue = underTest.getPetBoredomCounter("Sally");
+		assertEquals(sallyInitialOilValue, sallyFinalOilValue);
+	}
+	
+	@Test
+	public void shouldBeAbleToOilSallyAndSeeNothingHappenToFredOilValue() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int fredInitialOilValue = underTest.getPetOilValue("Fred");
+		underTest.oilPet("Sally");
+		int fredFinalOilValue = underTest.getPetOilValue("Fred");
+		assertEquals(fredInitialOilValue, fredFinalOilValue);
+	}
+	
+	@Test
+	public void shouldBeAbleToOilRSallyAndSeeRSallyOilValueGoUpBy25() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rSallyInitialOilValue = underTest.getPetOilValue("R Sally");
+		underTest.oilPet("R Sally");
+		int rSallyFinalOilValue = underTest.getPetOilValue("R Sally");
+		assertEquals(rSallyInitialOilValue + 25, rSallyFinalOilValue);
+	}
+	
+	@Test
+	public void shouldBeAbleToOilRSallyAndSeeNothingHappenToRFredOilValue() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rFredInitialOilValue = underTest.getPetOilValue("R Fred");
+		underTest.oilPet("R Sally");
+		int rFredFinalOilValue = underTest.getPetOilValue("R Fred");
+		assertEquals(rFredInitialOilValue, rFredFinalOilValue);
+	}
+	
+	@Test
+	public void shouldBeAbleToOilAllAndSeeNothingHappenToSallyOilValue() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int sallyInitialOilValue = underTest.getPetBoredomCounter("Sally");
+		underTest.oilAll();
+		int sallyFinalOilValue = underTest.getPetBoredomCounter("Sally");
+		assertEquals(sallyInitialOilValue, sallyFinalOilValue);
+	}
+	
+	@Test
+	public void shouldBeAbleToOilAllAndSeeNothingHappenToFredOilValue() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int fredInitialOilValue = underTest.getPetOilValue("Fred");
+		underTest.oilAll();
+		int fredFinalOilValue = underTest.getPetOilValue("Fred");
+		assertEquals(fredInitialOilValue, fredFinalOilValue);
+	}
+	
+	@Test
+	public void shouldBeAbleToOilAllAndSeeRSallyOilValueGoUpBy25() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rSallyInitialOilValue = underTest.getPetOilValue("R Sally");
+		underTest.oilAll();
+		int rSallyFinalOilValue = underTest.getPetOilValue("R Sally");
+		assertEquals(rSallyInitialOilValue + 25, rSallyFinalOilValue);
+	}
+	
+	@Test
+	public void shouldBeAbleToOilAllAndSeeRFredOilValueGoUpBy25() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rFredInitialOilValue = underTest.getPetOilValue("R Fred");
+		underTest.oilAll();
+		int rFredFinalOilValue = underTest.getPetOilValue("R Fred");
+		assertEquals(rFredInitialOilValue + 25, rFredFinalOilValue);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Test
+	public void shouldBeAbleToMaintainSallyAndSeeNothingHappenToSallyMaintenanceHealth() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int sallyInitialMaintenanceHealth = underTest.getPetMaintenanceHealth("Sally");
+		underTest.maintainPet("Sally");
+		int sallyFinalMaintenanceHealth = underTest.getPetMaintenanceHealth("Sally");
+		assertEquals(sallyInitialMaintenanceHealth, sallyFinalMaintenanceHealth);
+	}
+	
+	@Test
+	public void shouldBeAbleToMaintainSallyAndSeeNothingHappenToFredMaintenanceHealth() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int fredInitialMaintenanceHealth = underTest.getPetMaintenanceHealth("Fred");
+		underTest.maintainPet("Sally");
+		int fredFinalMaintenanceHealth = underTest.getPetMaintenanceHealth("Fred");
+		assertEquals(fredInitialMaintenanceHealth, fredFinalMaintenanceHealth);
+	}
+	
+	@Test
+	public void shouldBeAbleToMaintainRSallyAndSeeRSallyMaintenanceHealthGoTo100() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		underTest.maintainPet("R Sally");
+		int rSallyMaintenanceHealth = underTest.getPetMaintenanceHealth("R Sally");
+		assertEquals(100, rSallyMaintenanceHealth);
+	}
+	
+	@Test
+	public void shouldBeAbleToMaintainRSallyAndSeeNothingHappenToRFredMaintenanceHealth() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int rFredInitialMaintenanceHealth = underTest.getPetMaintenanceHealth("R Fred");
+		underTest.maintainPet("R Sally");
+		int rFredFinalMaintenanceHealth = underTest.getPetMaintenanceHealth("R Fred");
+		assertEquals(rFredInitialMaintenanceHealth, rFredFinalMaintenanceHealth);
+	}
+	
+	@Test
+	public void shouldBeAbleToMaintainAllAndSeeNothingHappenToSallyMaintenanceHealth() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int sallyInitialMaintenanceHealth = underTest.getPetMaintenanceHealth("Sally");
+		underTest.maintainAll();
+		int sallyFinalMaintenanceHealth = underTest.getPetMaintenanceHealth("Sally");
+		assertEquals(sallyInitialMaintenanceHealth, sallyFinalMaintenanceHealth);
+	}
+	
+	@Test
+	public void shouldBeAbleToMaintainAllAndSeeNothingHappenToFredMaintenanceHealth() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		int fredInitialMaintenanceHealth = underTest.getPetMaintenanceHealth("Fred");
+		underTest.maintainAll();
+		int fredFinalMaintenanceHealth = underTest.getPetMaintenanceHealth("Fred");
+		assertEquals(fredInitialMaintenanceHealth, fredFinalMaintenanceHealth);
+	}
+	
+	@Test
+	public void shouldBeAbleToMaintainAllAndSeeRSallyMaintenanceHealthGoTo100() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		underTest.maintainAll();
+		int rSallyMaintenanceHealth = underTest.getPetMaintenanceHealth("R Sally");
+		assertEquals(100, rSallyMaintenanceHealth);
+	}
+	
+	@Test
+	public void shouldBeAbleToMaintaiAllAndSeeRFredMaintenanceHealthGoTo100() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.addRoboticPetToShelter(new RoboticCat("R Sally"));
+		underTest.addRoboticPetToShelter(new RoboticDog("R Fred"));
+		underTest.maintainAll();
+		int rFredFinalMaintenanceHealth = underTest.getPetMaintenanceHealth("R Fred");
+		assertEquals(100, rFredFinalMaintenanceHealth);
+	}
+	
 }
