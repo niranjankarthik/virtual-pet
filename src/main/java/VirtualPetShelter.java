@@ -176,6 +176,19 @@ public class VirtualPetShelter {
 		}
 	}
 
+	public void waterPet(String name) {
+		VirtualPet virtualPet = virtualPetsMap.get(name);
+		if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true) {
+			((OrganicPet) virtualPet).giveDrink();
+		}
+	}
+
+	public void waterAllPets() {
+		for (VirtualPet virtualPet : virtualPetsMap.values()) {
+			waterPet(virtualPet.getName());
+		}
+	}
+
 	public void playWithPet(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
 		if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true) {
@@ -216,7 +229,7 @@ public class VirtualPetShelter {
 	}
 	public void cleanCatLitterBox(String name) {
 		VirtualPet virtualPet = virtualPetsMap.get(name);
-		if (virtualPet instanceof OrganicPet && virtualPet.getOwnership() == true){
+		if (virtualPet instanceof OrganicCat && virtualPet.getOwnership() == true){
 			((OrganicCat) virtualPet).cleanLitterBox();
 		}
 	}
