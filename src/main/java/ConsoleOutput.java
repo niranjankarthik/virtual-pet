@@ -39,8 +39,8 @@ public class ConsoleOutput {
 		System.out.printf("|%s", make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetBoredom(name))));
 		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetThirst(name))));
 		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetBoredomCounter(name))));
-//		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetSoilRate(name))));
-//		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetSoilRate(name))));		
+		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getLitterBoxCapacity(name))));
+		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getHowMuchPoopInCage(name))));		
 		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetOilValue(name))));
 		System.out.printf("|%s", make10CharacterStringWithDashes(Integer.toString(virtualPetShelter.getPetMaintenanceHealth(name))));
 		System.out.printf("|%s", make10CharacterStringWithDashes(Boolean.toString(virtualPetShelter.getPetOwnership(name))));
@@ -54,8 +54,8 @@ public class ConsoleOutput {
 		System.out.printf("|%s", make10CharacterStringWithDashes("Boredom"));
 		System.out.printf("|%s", make10CharacterStringWithDashes("Thirst"));
 		System.out.printf("|%s", make10CharacterStringWithDashes("BoredomCounter"));
-//		System.out.printf("|%s", make10CharacterStringWithDashes("Cage Cleanliness"));
-//		System.out.printf("|%s", make10CharacterStringWithDashes("Litter Box Capacity"));
+		System.out.printf("|%s", make10CharacterStringWithDashes("Litter Box Capacity"));
+		System.out.printf("|%s", make10CharacterStringWithDashes("Cage Poop"));
 		System.out.printf("|%s", make10CharacterStringWithDashes("Oil Value"));
 		System.out.printf("|%s", make10CharacterStringWithDashes("Mtnc HP"));
 		System.out.printf("|%s", make10CharacterStringWithDashes("Ownership"));

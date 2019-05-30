@@ -102,7 +102,22 @@ public class VirtualPetShelter {
 			return -1;
 		}
 	}
-
+	public int getLitterBoxCapacity(String name) {
+		VirtualPet virtualPet = virtualPetsMap.get(name);
+		if (virtualPet instanceof OrganicCat) {
+			return ((OrganicCat) virtualPet).getHowMuchPoopInLitterBox();
+		} else {
+			return -1;
+		}
+	}
+	public int getHowMuchPoopInCage(String name) {
+		VirtualPet virtualPet = virtualPetsMap.get(name);
+		if (virtualPet instanceof OrganicDog) {
+			return ((OrganicDog) virtualPet).getHowMuchPoopInCage();
+		} else {
+			return -1;
+		}
+	}
 	public int getHowManyPets() {
 		return virtualPetsMap.size();
 	}
