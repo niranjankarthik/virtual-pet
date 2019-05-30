@@ -596,7 +596,7 @@ public class VirtualPetShelterTest {
 		assertEquals(aInitialCatLitterBox, aFinalCatLitterBox);
 	}
 	@Test
-	public void shouldBeAbleToCleanCatLitterBoxAndMakeOrganicCatDecreaseSoilRateToZero() {
+	public void shouldBeAbleToCleanCatLitterBoxAndMakeOrganicCatBDecreaseSoilRateToZero() {
 		underTest.addOrganicPetToShelter(new OrganicDog("A"));
 		underTest.addOrganicPetToShelter(new OrganicCat("B"));
 		underTest.addRoboticPetToShelter(new RoboticCat("C"));
@@ -605,6 +605,47 @@ public class VirtualPetShelterTest {
 		int bCatLitterBox = underTest.getPetSoilRate("B");
 		assertEquals(0, bCatLitterBox);
 	}
-	
-
+	@Test
+	public void shouldBeAbleToCleanAllLitterBoxAndNothingHappenToOrganicDogA() {
+		underTest.addOrganicPetToShelter(new OrganicDog("A"));
+		underTest.addOrganicPetToShelter(new OrganicCat("B"));		
+		underTest.addRoboticPetToShelter(new RoboticDog("C"));
+		underTest.addRoboticPetToShelter(new RoboticCat("D"));
+		int aInitialCatLitterBox = underTest.getPetSoilRate("A");
+		underTest.cleanAllLitterBox();
+		int aFinalCatLitterBox = underTest.getPetSoilRate("A");
+		assertEquals(aInitialCatLitterBox, aFinalCatLitterBox);
+	}
+	@Test
+	public void shouldBeAbleToCleanAllLitterBoxAndNothingHappenToRoboticDogC() {
+		underTest.addOrganicPetToShelter(new OrganicDog("A"));
+		underTest.addOrganicPetToShelter(new OrganicCat("B"));		
+		underTest.addRoboticPetToShelter(new RoboticDog("C"));
+		underTest.addRoboticPetToShelter(new RoboticCat("D"));
+		int aInitialCatLitterBox = underTest.getPetSoilRate("C");
+		underTest.cleanAllLitterBox();
+		int aFinalCatLitterBox = underTest.getPetSoilRate("C");
+		assertEquals(aInitialCatLitterBox, aFinalCatLitterBox);
+	}
+	@Test
+	public void shouldBeAbleToCleanAllLitterBoxAndNothingHappenToRoboticCatD() {
+		underTest.addOrganicPetToShelter(new OrganicDog("A"));
+		underTest.addOrganicPetToShelter(new OrganicCat("B"));		
+		underTest.addRoboticPetToShelter(new RoboticDog("C"));
+		underTest.addRoboticPetToShelter(new RoboticCat("D"));
+		int aInitialCatLitterBox = underTest.getPetSoilRate("D");
+		underTest.cleanAllLitterBox();
+		int aFinalCatLitterBox = underTest.getPetSoilRate("D");
+		assertEquals(aInitialCatLitterBox, aFinalCatLitterBox);
+	}
+	@Test
+	public void shouldBeAbleToCleanAllLitterBoxAndMakeOrganicCatBDecreaseSoilRateToZero() {
+		underTest.addOrganicPetToShelter(new OrganicDog("A"));
+		underTest.addOrganicPetToShelter(new OrganicCat("B"));
+		underTest.addRoboticPetToShelter(new RoboticCat("C"));
+		underTest.addRoboticPetToShelter(new RoboticDog("D"));
+		underTest.cleanAllLitterBox();
+		int bCatLitterBox = underTest.getPetSoilRate("B");
+		assertEquals(0, bCatLitterBox);
+	}
 }
