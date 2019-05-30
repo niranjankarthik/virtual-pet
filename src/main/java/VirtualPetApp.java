@@ -99,9 +99,13 @@ public class VirtualPetApp {
 							System.out.println("All pets were oiled");
 						}
 						if (userChoice.equals("2")) {
-							System.out.println("Enter Name of Pet you want to walk");
+							System.out.println("Enter Name of Pet you want to oil");
 							name = input.nextLine();
 							myShelter.playWithPet(name);
+							if(myShelter.getPetSpecies(name).contains("Organic")) {
+								System.out.println("You pour oil on " + name + " they are covered in oil, they look at you puzzled");
+							}
+							else
 							System.out.println(name + " was given oil");
 						}
 						
@@ -127,14 +131,17 @@ public class VirtualPetApp {
 						System.out.println("Any other input returns you to main menu");
 						userChoice = input.nextLine();
 						if (userChoice.equals("1")) {
-							myShelter.playWithAll();
+							myShelter.walkAll();
 							System.out.println("All pets were walked");
 						}
 						if (userChoice.equals("2")) {
 							System.out.println("Enter Name of Pet you want to walk");
 							name = input.nextLine();
-							myShelter.playWithPet(name);
-							System.out.println(name + " was given a walk");
+							myShelter.walkPet(name);
+							if(myShelter.getPetSpecies(name).equals("Organic Cat")) {
+								System.out.println(name + " sracthes you, Organic Cats don't like walks");
+							}
+							else System.out.println(name + " was given a walk");
 						}
 						
 					}continue;
