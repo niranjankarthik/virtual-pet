@@ -672,4 +672,32 @@ public class VirtualPetShelterTest {
 		int bCatLitterBox = underTest.getPetSoilRate("B");
 		assertEquals(0, bCatLitterBox);
 	}
+	
+	@Test
+	public void shouldBeAbleToWalkPet() {
+		underTest.addOrganicPetToShelter(new OrganicDog("A"));		
+		underTest.addRoboticPetToShelter(new RoboticDog("C"));
+		underTest.addRoboticPetToShelter(new RoboticCat("D"));
+		underTest.walkPet("A");
+		int soilRate = underTest.getPetSoilRate("A");
+		assertEquals(0, soilRate);
+	}
+	
+	@Test
+	public void ShouldBeAbleToWalkAllPets() {
+		underTest.addOrganicPetToShelter(new OrganicDog("A"));
+		underTest.addRoboticPetToShelter(new RoboticCat("C"));
+		underTest.addRoboticPetToShelter(new RoboticDog("D"));
+		int cInitialMaintenanceHealth = underTest.getPetMaintenanceHealth("C");
+		int dInitialMaintenanceHealth = underTest.getPetMaintenanceHealth("D");
+		underTest.walkAll();
+		int AsoilRate = underTest.getPetSoilRate("A");
+		assertEquals(0, AsoilRate);
+		int cFinalMaitainanceHealth = underTest.getPetMaintenanceHealth("C");
+		assertEquals(cInitialMaintenanceHealth -10, cFinalMaitainanceHealth);
+		int  dFinalMaitainanceHealth = underTest.getPetMaintenanceHealth("D");
+		assertEquals(dInitialMaintenanceHealth -10, dFinalMaitainanceHealth);
+	}
+	
+	
 }
