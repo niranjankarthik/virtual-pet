@@ -130,7 +130,7 @@ public class VirtualPetShelter {
 		}
 	}
 	
-	public void feedAllMealMethod() {
+	public void feedAllMeal() {
 		for (VirtualPet virtualPet : virtualPetsMap.values()) {
 			if (virtualPet.getOwnership() == true) {
 				feedPetMeal(virtualPet.getName());
