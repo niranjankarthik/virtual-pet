@@ -69,7 +69,7 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldPutFredIntoShelterAndShouldBeAbleToGetFredAndFredsStats() {
 		underTest.addOrganicPetToShelter(new OrganicPet("Fred", "Cat"));
-		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		VirtualPet resultPet = underTest.getVirtualPet("Fred");
 		assertThat("Fred", is(resultPet.getName()));
 		assertThat("Cat", is(resultPet.getSpecies()));
 		assertThat( true , is(resultPet.getOwnership()));
@@ -81,7 +81,7 @@ public class VirtualPetShelterTest {
 		underTest.addOrganicPetToShelter(new OrganicPet("Fred", "Cat"));
 		underTest.sendPetToShelter("Fred");
 		underTest.feedAllSnack();
-		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		VirtualPet resultPet = underTest.getVirtualPet("Fred");
 		assertThat(((OrganicPet)resultPet).getHunger(), is(10));
 	}
 	
@@ -100,7 +100,7 @@ public class VirtualPetShelterTest {
 	public void petNotSentToShelterShouldNotBeWFedWhenFeedAllSnackMethodIsCalled() {
 		underTest.addOrganicPetToShelter(new OrganicPet("Fred", "Cat"));
 		underTest.feedAllSnack();
-		VirtualPet resultPet = underTest.getSinglePet("Fred");
+		VirtualPet resultPet = underTest.getVirtualPet("Fred");
 		assertThat(((OrganicPet)resultPet).getHunger(), is(8));
 	}
 	
