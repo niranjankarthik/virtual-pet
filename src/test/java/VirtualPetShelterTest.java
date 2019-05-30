@@ -571,4 +571,26 @@ public class VirtualPetShelterTest {
 		assertEquals(100, rFredFinalMaintenanceHealth);
 	}
 	
+	@Test
+	public void shouldAbleToWaterPet() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.waterPet("Sally");
+		int sallyThirst = underTest.getPetThirst("Sally");
+		assertEquals(0, sallyThirst);
+	}
+	
+	@Test
+	public void shouldBeAbleToWaterAllPets() {
+		underTest.addOrganicPetToShelter(new OrganicCat("Sally"));
+		underTest.addOrganicPetToShelter(new OrganicDog("Fred"));
+		underTest.waterAllPets();
+		int sallyThirst = underTest.getPetThirst("Sally");
+		assertEquals(0, sallyThirst);
+		int fredThirst = underTest.getPetThirst("Fred");
+		assertEquals(0, fredThirst);
+		
+	}
+	
+	
+	
 }
