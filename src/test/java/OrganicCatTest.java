@@ -19,16 +19,24 @@ public class OrganicCatTest {
 	@Test
 	public void shouldHaveAttributeHowMuchPoopInLitterBoxDefaultValue5() {
 		OrganicCat underTest = new OrganicCat(null);
-		int poopInCage = underTest.getHowMuchPoopInLitterBox();
-		assertEquals(5, poopInCage);
+		int poopInLitterBox = underTest.getHowMuchPoopInLitterBox();
+		assertEquals(5, poopInLitterBox);
 	}
 	
 	@Test
 	public void shouldHaveAttributeHowMuchPoopInLitterBoxOf6AfterTick() {
 		OrganicCat underTest = new OrganicCat(null);
 		underTest.tick();
-		int poopInCage = underTest.getHowMuchPoopInLitterBox();
-		assertEquals(6, poopInCage);
+		int poopInLitterBox = underTest.getHowMuchPoopInLitterBox();
+		assertEquals(6, poopInLitterBox);
+	}
+	@Test
+	public void shouldBeAbleToCleanCatLitterWhichMakePoopInLitterBoxToZero() {
+		OrganicCat underTest = new OrganicCat(null);
+		int poopInLitterBox = underTest.getHowMuchPoopInLitterBox();
+		underTest.cleanLitterBox();
+		int poopInLitterBoxAfterClean = underTest.getHowMuchPoopInLitterBox();
+		assertEquals(0, poopInLitterBoxAfterClean);
 	}
 	
 }
