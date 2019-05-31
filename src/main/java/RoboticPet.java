@@ -1,5 +1,5 @@
 
-public class RoboticPet extends VirtualPet implements Walkable{
+public class RoboticPet extends VirtualPet implements Walkable {
 
 	private int oilValue;
 	private int maintenanceHealth;
@@ -9,7 +9,7 @@ public class RoboticPet extends VirtualPet implements Walkable{
 		this.oilValue = 50;
 		this.maintenanceHealth = 50;
 	}
-	
+
 	public RoboticPet(String name, String species, int age) {
 		super(name, species, age);
 		this.oilValue = 50;
@@ -17,7 +17,7 @@ public class RoboticPet extends VirtualPet implements Walkable{
 	}
 
 	public int getOilValue() {
-		if(oilValue > 100) {
+		if (oilValue > 100) {
 			oilValue = 100;
 		}
 		if (oilValue < 0) {
@@ -29,13 +29,13 @@ public class RoboticPet extends VirtualPet implements Walkable{
 	public void addOil() {
 		oilValue += 25;
 	}
-	
+
 	@Override
 	public void tick() {
 		oilValue -= 2;
 		maintenanceHealth -= 3;
 	}
-	
+
 	@Override
 	public void walk() {
 		maintenanceHealth -= 10;
@@ -43,7 +43,7 @@ public class RoboticPet extends VirtualPet implements Walkable{
 	}
 
 	public int getMaintenanceHealth() {
-		if(maintenanceHealth < 0) {
+		if (maintenanceHealth < 0) {
 			maintenanceHealth = 0;
 		}
 		return maintenanceHealth;

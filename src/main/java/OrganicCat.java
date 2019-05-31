@@ -6,13 +6,11 @@ public class OrganicCat extends OrganicPet {
 	}
 
 	public int getHowMuchPoopInLitterBox() {
-		 return getSoilRate();
+		return getSoilRate();
 	}
 
 	public void cleanLitterBox() {
 		putSoilRateToZero();
 	}
-	
-	
 
 }

@@ -12,6 +12,7 @@ public abstract class VirtualPet {
 		this.species = species;
 		this.age = age;
 	}
+
 	public VirtualPet(String name, String species) {
 		this.name = name;
 		this.ownership = true;
@@ -35,24 +36,20 @@ public abstract class VirtualPet {
 		return age;
 	}
 
-	public void tick() {	
-		
+	public void tick() {
+
 	}
 
 	public void play() {
 
 	}
-	
 
 	public void sendPetToShelter() {
 		this.ownership = false;
 	}
 
 	public void incrementAge() {
-		age ++;	
+		age++;
 	}
-	
-	
-	
-	
+
 }
