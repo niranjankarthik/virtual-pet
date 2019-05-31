@@ -21,7 +21,7 @@ Virtual Pet is a tamagachi analog on steroids!
 
 ## Enter the game!
 
- - Now, you enter the main menu and have five choices of what to do, or you can Enter 9 to exit.
+ - You enter the main menu and have five choices of what to do, or you can Enter 9 to exit.
 
     - Enter 1 to make another pet
     - Enter 2 to interact with your pets
