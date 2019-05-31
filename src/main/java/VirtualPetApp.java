@@ -9,6 +9,9 @@ public class VirtualPetApp {
 		String userChoice;
 		Scanner input = new Scanner(System.in);
 
+		System.out.println("Welcome to the Virtual Pet Shelter");
+		System.out.println();
+
 		createPet(myShelter, input);
 
 		do {
@@ -24,19 +27,10 @@ public class VirtualPetApp {
 				continue;
 			}
 			if (userChoice.equals("2")) {
-				System.out.println("What would you like to do?");
-				System.out.println("(1) Feed your Pets");
-				System.out.println("(2) Water your Pets");
-				System.out.println("(3) Play with your Pets");
-				System.out.println("(4) Oil your Pets");
-				System.out.println("(5) Maintain your Pets");
-				System.out.println("(6) Walk with Pet");
-
+				printPetInteractionMenu();
 				userChoice = input.nextLine();
 				if (userChoice.equals("1")) {
-					System.out.println(
-							"(1) Feed all pets a snack \n(2) Feed a single pet a snack \n(3) Feed all pets a meal \n(4) Feed a single pet a meal");
-					System.out.println("Any other input returns you to main menu");
+					printFeedPetMenu();
 					userChoice = input.nextLine();
 					if (userChoice.equals("1")) {
 						myShelter.feedAllSnack();
@@ -45,19 +39,31 @@ public class VirtualPetApp {
 					if (userChoice.equals("2")) {
 						System.out.println("Enter Name of Pet you want to feed a snack");
 						name = input.nextLine();
-						myShelter.feedPetSnack(name);
-						System.out.println(name + " was given a snack");
-						ConsoleOutput.printPetAttributes(myShelter, name);
+						if(myShelter.getAllNames().contains(name)) {
+							myShelter.feedPetSnack(name);
+							System.out.println(name + " was given a snack");
+							ConsoleOutput.printPetAttributes(myShelter, name);
+						} else {
+							System.out.println("No pet in shelter with name " + name);
+							continue;
+						}
 					}
 					if (userChoice.equals("3")) {
 						myShelter.feedAllMeal();
 						System.out.println("All pets were given a meal");
+						continue;
 					}
 					if (userChoice.equals("4")) {
 						System.out.println("Enter Name of Pet you want to feed a meal");
 						name = input.nextLine();
-						myShelter.feedPetMeal(name);
-						System.out.println(name + " was given a meal");
+						if(myShelter.getAllNames().contains(name)) {
+							myShelter.feedPetMeal(name);
+							System.out.println(name + " was given a meal");
+							ConsoleOutput.printPetAttributes(myShelter, name);
+						} else {
+							System.out.println("No pet in shelter with name " + name);
+						}
+						continue;
 					}
 				}
 				if (userChoice.equals("2")) {
@@ -67,14 +73,21 @@ public class VirtualPetApp {
 					if (userChoice.equals("1")) {
 						myShelter.waterAllPets();
 						System.out.println("All pets were watered");
+						continue;
 					}
 					if (userChoice.equals("2")) {
 						System.out.println("Enter Name of Pet you want to give water");
 						name = input.nextLine();
-						myShelter.waterPet(name);
-						System.out.println(name + " was given water");
-					}
 
+						if(myShelter.getAllNames().contains(name)) {
+							myShelter.waterPet(name);
+							System.out.println(name + " was given water");
+							ConsoleOutput.printPetAttributes(myShelter, name);
+						} else {
+							System.out.println("No pet in shelter with name " + name);
+							continue;
+						}
+					}
 				}
 				if (userChoice.equals("3")) {
 					System.out.println("(1) Play with all pets \n(2) Play with a single pet");
@@ -87,46 +100,66 @@ public class VirtualPetApp {
 					if (userChoice.equals("2")) {
 						System.out.println("Enter Name of Pet you want to play with");
 						name = input.nextLine();
-						myShelter.playWithPet(name);
-						System.out.println(name + " was played with");
+						if(myShelter.getAllNames().contains(name)) {
+							myShelter.playWithPet(name);
+							System.out.println(name + " was played with");
+						} else {
+							System.out.println("No pet in shelter with name " + name);
+							continue;
+						}
 					}
-
+					continue;
 				}
 				if (userChoice.equals("4")) {
 					System.out.println("(1) Oil all pets \n(2) Oil a single pet");
 					System.out.println("Any other input returns you to main menu");
 					userChoice = input.nextLine();
 					if (userChoice.equals("1")) {
-						myShelter.playWithAll();
+						myShelter.oilAll();
 						System.out.println("All pets were oiled");
 					}
 					if (userChoice.equals("2")) {
 						System.out.println("Enter Name of Pet you want to oil");
 						name = input.nextLine();
-						myShelter.playWithPet(name);
-						if (myShelter.getPetSpecies(name).contains("Organic")) {
-							System.out.println(
-									"You pour oil on " + name + " they are covered in oil, they look at you puzzled");
-						} else
-							System.out.println(name + " was given oil");
+						if(myShelter.getAllNames().contains(name)) {
+							myShelter.oilPet(name);
+							if (myShelter.getPetSpecies(name).contains("Organic")) {
+								System.out.println(
+										"You pour oil on " + name + 
+										" they are covered in oil, they look at you puzzled");
+							} else
+								System.out.println(name + " was given oil");
+						} else {
+							System.out.println("No pet in shelter with name " + name);
+						}
+						continue;
 					}
-
 				}
 				if (userChoice.equals("5")) {
 					System.out.println("(1) Maintain all pets \n(2) Maintain a single pet");
 					System.out.println("Any other input returns you to main menu");
 					userChoice = input.nextLine();
 					if (userChoice.equals("1")) {
-						myShelter.playWithAll();
+						myShelter.maintainAll();
 						System.out.println("All pets were maintained");
+						continue;
 					}
 					if (userChoice.equals("2")) {
 						System.out.println("Enter Name of Pet you want to maintain");
 						name = input.nextLine();
-						myShelter.playWithPet(name);
-						System.out.println(name + " was given maintence");
+						if(myShelter.getAllNames().contains(name)) {
+							myShelter.maintainPet(name);
+							if(myShelter.getPetSpecies(name).contains("Organic")) {
+								System.out.println("You can't maintain an organic pet.");
+							} else {
+								System.out.println(name + " was given maintenance");
+							}
+						} else {
+							System.out.println("No pet in shelter with name " + name);
+							continue;
+						}
+						continue;
 					}
-
 				}
 				if (userChoice.equals("6")) {
 					System.out.println("(1) Walk all pets \n(2) Walk a single pet");
@@ -139,13 +172,17 @@ public class VirtualPetApp {
 					if (userChoice.equals("2")) {
 						System.out.println("Enter Name of Pet you want to walk");
 						name = input.nextLine();
-						myShelter.walkPet(name);
-						if (myShelter.getPetSpecies(name).equals("Organic Cat")) {
-							System.out.println(name + " sracthes you, Organic Cats don't like walks");
-						} else
-							System.out.println(name + " was given a walk");
+						if(myShelter.getAllNames().contains(name)) {
+							myShelter.walkPet(name);
+							if (myShelter.getPetSpecies(name).equals("Organic Cat")) {
+								System.out.println(name + " scratches you, "
+										+ "Organic Cats don't like walks");
+							} else
+								System.out.println(name + " was given a walk");
+						} else {
+							System.out.println("No pet in shelter with name " + name);
+						}
 					}
-
 				}
 				continue;
 			}
@@ -159,16 +196,16 @@ public class VirtualPetApp {
 				userChoice = input.nextLine();
 				if (userChoice.equals("1")) {
 					System.out.println("Which pet's stats do you want to see?");
-					userChoice = input.nextLine();
-					ConsoleOutput.printPetAttributes(myShelter, userChoice);
+					name = input.nextLine();
+					if(myShelter.getAllNames().contains(name)) {
+						ConsoleOutput.printPetAttributes(myShelter, name);
+					} else {
+						System.out.println("No pet in shelter with name " + name);
+					}
 				} else if (userChoice.equals("2")) {
 					ConsoleOutput.printAllPetAttributes(myShelter);
 				} else if (userChoice.equals("3")) {
 					ConsoleOutput.printAllOwnedPetAttributes(myShelter);
-				}
-
-				else {
-					continue;
 				}
 				continue;
 			}
@@ -176,19 +213,25 @@ public class VirtualPetApp {
 				System.out.println("Which Pet do you want to relinquish ownership of?");
 				System.out.println("You will never see them again");
 				name = input.nextLine();
-				myShelter.sendPetToShelter(name);
-				System.out.println("You see " + name + " walk off into the distance");
+				if(myShelter.getAllNames().contains(name)) {
+					myShelter.sendPetToShelter(name);
+					System.out.println("You see " + name + " walk off into the distance");
+					
+				} else {
+					System.out.println("No pet in shelter with name " + name);
+					System.out.println("You are a horrible owner.");
+					System.out.println("You don't even know the name of the pet you want to get rid of.");
+				}
 			}
 			if (userChoice.equals("5")) {
 				System.out.println("How much time should pass");
-				System.out.println("(1) a day");
-				System.out.println("(2) a week");
-				System.out.println("(3) go on vacation");
+				System.out.println("- Enter 1 for a day");
+				System.out.println("- Enter 2 for a week");
+				System.out.println("- Enter 3 to go on vacation for a month");
 				System.out.println("Any other input returns you to main menu");
 				userChoice = input.nextLine();
 				if (userChoice.equals("1")) {
 					myShelter.tickShelter();
-
 				} else if (userChoice.equals("2")) {
 					for (int i = 0; i < 7; i++) {
 						myShelter.tickShelter();
@@ -199,7 +242,7 @@ public class VirtualPetApp {
 						myShelter.tickShelter();
 					}
 				}
-
+				continue;
 			}
 		} while (!userChoice.equals("9"));
 
@@ -237,21 +280,34 @@ public class VirtualPetApp {
 	}
 
 	private static void printMainMenu() {
-		System.out.println("Press 1 Make another Pet");
-		System.out.println("Press 2 Interact with your Pets");
-		System.out.println("Press 3 Show Pet Stats");
-		System.out.println("Press 4 Relinquish Ownership");
-		System.out.println("Press 5 Let time pass");
-		System.out.println("Press 9 to exit");
+		System.out.println("- Enter 1 to make another pet");
+		System.out.println("- Enter 2 to interact with your pets");
+		System.out.println("- Enter 3 to show pet stats");
+		System.out.println("- Enter 4 to relinquish ownership of a pet");
+		System.out.println("- Enter 5 to let time pass");
+		System.out.println("- Enter 9 to exit");
+		System.out.println();
+	}
+
+	private static void printPetInteractionMenu() {
+		System.out.println("What would you like to do?");
+		System.out.println("- Enter 1 to feed your pet(s)");
+		System.out.println("- Enter 2 to water your pet(s)");
+		System.out.println("- Enter 3 to play with your pet(s)");
+		System.out.println("- Enter 4 to oil your pet(s)");
+		System.out.println("- Enter 5 to maintain your pet(s)");
+		System.out.println("- Enter 6 to walk your pet(s)");
+		System.out.println("- Any other input returns you to main menu");
+		System.out.println();
+	}
+
+	private static void printFeedPetMenu() {
+		System.out.println(
+				"- Enter 1 to feed all pets a snack \n"
+						+ "- Enter 2 to feed a single pet a snack \n"
+						+ "- Enter 3 to feed all pets a meal \n"
+						+ "- Enter 4 to feed a single pet a meal");
+		System.out.println("Any other input returns you to main menu");
+		System.out.println();
 	}
 }
-
-//VirtualPetShelter defaultShelter = new VirtualPetShelter();
-
-//defaultShelter.addPetToShelter(new VirtualPet("Fred", "Cat"));
-//defaultShelter.addPetToShelter(new VirtualPet("Lawrence", "Dog"));
-//defaultShelter.addPetToShelter(new VirtualPet("Matt", "Dog"));
-
-//System.out.println(defaultShelter.getPetAttributes("Fred"));
-//System.out.println();
-//System.out.println(defaultShelter.getAllAttributes());

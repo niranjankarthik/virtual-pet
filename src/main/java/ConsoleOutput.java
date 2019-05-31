@@ -75,7 +75,7 @@ public class ConsoleOutput {
 		for (int i = 0; i < 2; i++) {
 			System.out.printf("|%s", make14CharacterStringWithDashes(""));
 		}
-		for (int i = 2; i < 9; i++) {
+		for (int i = 2; i < 11; i++) {
 			System.out.printf("|%s", make10CharacterStringWithDashes(""));
 		}
 		System.out.println("|");
@@ -142,7 +142,6 @@ public class ConsoleOutput {
 
 	public static void printCommonAttributesOfAllPets(VirtualPetShelter virtualPetShelter) {
 		printCommonPetAttributesHeader();
-		int howManyPets = virtualPetShelter.getHowManyPets();
 
 		for (String name : virtualPetShelter.getAllNames()) {
 			printCommonSinglePetAttributes(virtualPetShelter, name);
