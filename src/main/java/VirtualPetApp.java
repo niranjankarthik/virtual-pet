@@ -34,7 +34,7 @@ public class VirtualPetApp {
 					userChoice = input.nextLine();
 					if (userChoice.equals("1")) {
 						myShelter.feedAllSnack();
-						System.out.println("All organic spets were given a snack");
+						System.out.println("All organic pets were given a snack");
 					}
 					if (userChoice.equals("2")) {
 						System.out.println("Enter Name of Pet you want to feed a snack");
