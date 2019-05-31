@@ -31,3 +31,16 @@ Virtual Pet is a tamagachi analog on steroids!
     - Enter 9 to exit
 
  - Now, you can follow the instructions in each menu. Don't worry if you enter something wrong; you will be redirected to the main menu and can try again right away!
+
+## Here is an example of a pet stats table for four different types of pets:
+
+You can find something like this by using menu item 3 and showing all pet stats.
+
+|-----Name-----|----Species---|--Hunger--|--Boredom-|--Thirst--|BoredomCou|Litter Box|-Cage Poop|-Oil Value|--Mtnc HP-|-Ownership|
+|--------------|--------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
+|----Darryl----|--Robotic Cat-|----------|---false--|----------|----------|----------|----------|----50----|----50----|---true---|
+|----Albert----|--Organic Dog-|----10----|---true---|----10----|-----6----|----------|-----5----|----------|----------|---true---|
+|---Caroline---|--Robotic Dog-|----------|---false--|----------|----------|----------|----------|----50----|----50----|---true---|
+|---Beatrice---|--Organic Cat-|----10----|---true---|----10----|-----6----|-----5----|----------|----------|----------|---true---|
+
+# We hope you have a great time!
