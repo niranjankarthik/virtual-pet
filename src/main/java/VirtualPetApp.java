@@ -45,8 +45,8 @@ public class VirtualPetApp {
 							ConsoleOutput.printPetAttributes(myShelter, name);
 						} else {
 							System.out.println("No pet in shelter with name " + name);
-							continue;
 						}
+						continue;
 					}
 					if (userChoice.equals("3")) {
 						myShelter.feedAllMeal();
